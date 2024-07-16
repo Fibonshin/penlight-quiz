@@ -1,5 +1,5 @@
 import './Hinata.css';
-import {Link, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import { IoArrowUndoSharp } from "react-icons/io5";
 
 function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAction<number>>}) {
