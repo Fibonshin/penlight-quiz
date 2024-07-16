@@ -9,6 +9,7 @@
     padding: 10px;
 }
 
+
 .title {
     width: 300px;
     height: 300px;
@@ -31,6 +32,7 @@ button {
     border: none;
     font-size: 20px;
     font-weight: bold;
+    cursor: pointer;
 } 
 
 .btn1 {
