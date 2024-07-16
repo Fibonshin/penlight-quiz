@@ -19,7 +19,7 @@ function Hinata() {
       </div>
       <button className='btn1' onClick={()=> navigate('/')}>メンバー➔ペンライトカラー<br />QUIZ</button>
       <button className='btn1' onClick={()=> navigate('/')}>ペンライト➔カラーメンバー<br />4択QUIZ</button>
-      <button className='btn1' onClick={()=> navigate('/')}>メンバー➔ペンライトカラー<br />QUIZ</button>
+      <button className='btn1' onClick={()=> navigate('/')}>ペンライトカラー<br />一覧表示</button>
     </div>
   );
 }
