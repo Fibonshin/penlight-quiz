@@ -1,11 +1,11 @@
 import './Hinata.css';
 import {useNavigate} from 'react-router-dom';
 import { IoArrowUndoSharp } from "react-icons/io5";
-import TransYaml from '../TransYaml';
-
+import transYaml from '../transYaml';
 
 function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAction<number>>}) {
   const navigate=useNavigate();
+  console.log(transYaml("Hinata/data.yml"))
   return (
     <div className='hinata'>
       <div className="homeButton">
@@ -14,7 +14,6 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
         </div>
       </div>
       <button className='btn1' onClick={()=> navigate('/')}>ペンライト➔カラーメンバー<br />4択QUIZ</button>
-      <TransYaml yamlPath='Hinata/data.yml'/>
     </div>
   );
 }
