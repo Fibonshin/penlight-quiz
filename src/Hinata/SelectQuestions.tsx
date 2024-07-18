@@ -1,9 +1,10 @@
-import {membersData,Member} from './membersData';
+import {membersData,Member} from './data';
 import { IoArrowUndoSharp } from "react-icons/io5";
 
 function SelectQuestions({setQuestionsData,setPage}:{
-  setQuestionsData:React.Dispatch<React.SetStateAction<{member:Member,options:string[]}[]>>, // ←TODO こいつに選択肢もいれる [{Member,[選択肢1,選択肢2,選択肢3,選択肢4]},]
+  setQuestionsData:React.Dispatch<React.SetStateAction<{member:Member,options:string[]}[]>>,
   setPage:React.Dispatch<React.SetStateAction<number>>}) {
+    
   function onPlay(filters:{key:keyof Member,property:any}[]){
     const filteredMenbers=membersData.filter(function(member){
       return filters.filter(nowFilter =>{
@@ -39,7 +40,7 @@ function SelectQuestions({setQuestionsData,setPage}:{
     <>
       <div className="home-button">
         <div onClick={()=>setPage(0)}>
-          <IoArrowUndoSharp color='black' size='50px' />
+          <IoArrowUndoSharp color='#363636' size='50px' />
         </div>
       </div>
       <div className="category">ピックアップ</div>
