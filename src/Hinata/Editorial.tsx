@@ -1,4 +1,5 @@
 import { Member } from "./data"
+import Penlight from './Penlight';
 
 function Editorial(
     {member,idx,total,toNext}
@@ -8,9 +9,9 @@ function Editorial(
     <>
       <div className="question" id="editorial">
         <div>{idx}／{total}</div>
-        <h1>{member.name}</h1>
-        ここにペンライトのイラストを挿入
-        <h2><span>{member.color[0]}</span><span> ✕ {member.color[1]}</span></h2>
+        <h1 id="hoge1">{member.name}</h1>
+        <Penlight lColor={member.color[0]} rColor={member.color[1]} borderColor="ホワイト"/>
+        <h2 id="hoge2"><span>{member.color[0]}</span><span> ✕ {member.color[1]}</span></h2>
         <div className="lb-headline lb2">答え</div>
       </div>
       <button id="goto-next" onClick={toNext}>次に進む</button>

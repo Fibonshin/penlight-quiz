@@ -15,8 +15,9 @@ const transColor={
   "パープル":"#7A3CFF",
   "ブルー":"#0000FF"
 }
+export type Color=keyof typeof transColor;
 
-function Penlight({lColor,rColor,borderColor}:{lColor:string,rColor:string,borderColor:string}) {
+export default function Penlight({lColor,rColor,borderColor}:{lColor:keyof typeof transColor,rColor:keyof typeof transColor,borderColor?:keyof typeof transColor}) {
   return (
     <svg width="107" height="219" viewBox="0 0 107 219" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="81" width="24" height="218" rx="3.2" fill="url(#paint0_linear_73_12)" stroke="black" stroke-width={lColor===borderColor?"0.5":"0"}/>
@@ -25,11 +26,11 @@ function Penlight({lColor,rColor,borderColor}:{lColor:string,rColor:string,borde
     <rect y="128" width="28" height="90.4" rx="1.6" fill="#5BBEE4"/>
     <defs>
     <linearGradient id="paint0_linear_73_12" x1="93" y1="0" x2="93" y2="218" gradientUnits="userSpaceOnUse">
-    <stop offset="0.15" stop-color="#FF9900"/>
+    <stop offset="0.15" stop-color={transColor[lColor]}/>
     <stop offset="1" stop-color="white"/>
     </linearGradient>
     <linearGradient id="paint1_linear_73_12" x1="14" y1="0" x2="14" y2="218" gradientUnits="userSpaceOnUse">
-    <stop offset="0.146667" stop-color="#FF9900"/>
+    <stop offset="0.146667" stop-color={transColor[rColor]}/>
     <stop offset="1" stop-color="white"/>
     </linearGradient>
     </defs>
@@ -37,4 +38,3 @@ function Penlight({lColor,rColor,borderColor}:{lColor:string,rColor:string,borde
   )
 }
 // TODO :背景と同色の場合の縁取りを実装する
-export default Penlight
