@@ -175,3 +175,34 @@ tbody {
     padding-bottom: 20px;
     padding-top: 10px;
 }
+
+#perfect{
+    color: red;
+}
+
+#goto-home{
+    margin-bottom: 40px;
+}
+
+.share{
+    background-color:rgb(67, 67, 67);
+    width: 204px;
+    color: white;
+    text-decoration: none;
+    border-radius: 100px;
+    padding: 10px 20px;
+    border: none;
+    font-size: 20px;
+    font-weight: bold; 
+}
+
+.show-category {
+    color:white;
+    background-color: #FFB800;
+    margin:20px auto 20px auto;
+    width: fit-content;
+    padding: 5px;
+    font-weight:bold;
+    font-size: 25px;
+    border-radius: 100px;
+}

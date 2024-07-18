@@ -1,11 +1,14 @@
 import {membersData,Member} from './data';
 import { IoArrowUndoSharp } from "react-icons/io5";
 
-function SelectQuestions({setQuestionsData,setPage}:{
+function SelectQuestions({setQuestionsData,setPage,setCategory}:{
   setQuestionsData:React.Dispatch<React.SetStateAction<{member:Member,options:string[]}[]>>,
-  setPage:React.Dispatch<React.SetStateAction<number>>}) {
+  setPage:React.Dispatch<React.SetStateAction<number>>
+  setCategory:React.Dispatch<React.SetStateAction<string>>
+  }) {
     
-  function onPlay(filters:{key:keyof Member,property:any}[]){
+  function onPlay({filters,category}:{filters:{key:keyof Member,property:any}[],category:string}){
+    setCategory(category);
     const filteredMenbers=membersData.filter(function(member){
       return filters.filter(nowFilter =>{
         return member[nowFilter.key]!==nowFilter.property;
@@ -44,19 +47,19 @@ function SelectQuestions({setQuestionsData,setPage}:{
         </div>
       </div>
       <div className="category">ピックアップ</div>
-      <button className='btn1' onClick={()=>onPlay([{key:"graduated",property:false}])}>全メンバー<br/>(28名)</button>
+      <button className='btn1' onClick={()=>onPlay({filters:[{key:"graduated",property:false}],category:"全メンバー"})}>全メンバー<br/>(28名)</button>
       <br />
-      <button className='btn1' onClick={()=>onPlay([])}>全メンバー + 卒業メンバー<br/>(36名)</button>
+      <button className='btn1' onClick={()=>onPlay({filters:[],category:"全メンバー + 卒業メンバー"})}>全メンバー + 卒業メンバー<br/>(36名)</button>
       <br />
-      <button className='btn1' onClick={()=>onPlay([{key:"term",property:4},{key:"graduated",property:false}])}>「４期生ライブ」メンバー<br/>(11名)</button>
+      <button className='btn1' onClick={()=>onPlay({filters:[{key:"term",property:4},{key:"graduated",property:false}],category:"「４期生ライブ」メンバー"})}>「４期生ライブ」メンバー<br/>(11名)</button>
       <div className="category">期別</div>
-      <button className='btn1' onClick={()=>onPlay([{key:"term",property:1}])}>１期生メンバー<br/>(11名)</button>
+      <button className='btn1' onClick={()=>onPlay({filters:[{key:"term",property:1}],category:"１期生メンバー"})}>１期生メンバー<br/>(11名)</button>
       <br />
-      <button className='btn1' onClick={()=>onPlay([{key:"term",property:2}])}>２期生メンバー<br/>(9名)</button>
+      <button className='btn1' onClick={()=>onPlay({filters:[{key:"term",property:2}],category:"２期生メンバー"})}>２期生メンバー<br/>(9名)</button>
       <br />
-      <button className='btn1' onClick={()=>onPlay([{key:"term",property:3}])}>３期生メンバー<br/>(4名)</button>
+      <button className='btn1' onClick={()=>onPlay({filters:[{key:"term",property:3}],category:"３期生メンバー"})}>３期生メンバー<br/>(4名)</button>
       <br />
-      <button className='btn1' onClick={()=>onPlay([{key:"term",property:4}])}>４期生メンバー<br/>(12名)</button>      
+      <button className='btn1' onClick={()=>onPlay({filters:[{key:"term",property:4}],category:"４期生メンバー"})}>４期生メンバー<br/>(12名)</button>      
     </>
   )
 }

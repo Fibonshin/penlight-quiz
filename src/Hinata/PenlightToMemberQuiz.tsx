@@ -5,9 +5,11 @@ import { IoMdHome } from "react-icons/io";
 import SelectQuestions from './SelectQuestions';
 import Editorial from './Editorial';
 import Penlight from './Penlight';
+import { BsTwitterX } from "react-icons/bs";
 
 function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAction<number>>}) {
   const [questionsData,setQuestionsData] = useState<{member:Member,options:string[]}[]>([]);
+  const [category,setCategory] =useState<string>("");
   const [inEditorial,setInEditorial] = useState(false);
   const [answers,setAnswers] =useState<string[]>([]);
   const questionNumber=answers.length;
@@ -26,7 +28,7 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
     <>
       {
         questionSum===0 ?
-        <SelectQuestions setQuestionsData={setQuestionsData} setPage={setPage} />
+        <SelectQuestions setQuestionsData={setQuestionsData} setPage={setPage} setCategory={setCategory}/>
         :
         <>
         <div className="home-button">
@@ -59,10 +61,11 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
           <>
             <div className="question">
               <div></div>
-              <h1 id="kekkahappyo-">{questionSum}問中<span> {questionSum-WAs.length} </span>問正解</h1>
+              <div className="show-category">{category}</div>
+              <h1 id="kekkahappyo-">{questionSum}問中<span id={(WAs.length===0 && questionSum >= 4) ? 'perfect':''}> {questionSum-WAs.length} </span>問正解</h1>
               {
-                WAs.length===0 &&
-                <h2>{perfectMessage[Math.floor(Math.random()*perfectMessage.length)]}</h2>
+                (WAs.length===0 && questionSum >= 4) &&
+                <h2 id='perf-msg'>{perfectMessage[Math.floor(Math.random()*perfectMessage.length)]}</h2>
               }
               <div className="lb-headline lb2">結果</div>
             </div>
@@ -78,7 +81,9 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
               setQuestionsData(NextQuestionData);
             }}>もう一度やる</button>
             <br /> 
-            <button className='btn3' onClick={()=>{setPage(0)}}>ホームに戻る</button>
+            <button className='btn3' id="goto-home" onClick={()=>{setPage(0)} }>ホームに戻る</button>
+            <br />
+            <a className='share' href={`https://x.com/intent/post?text=日向坂46ペンライトQUIZ【${category}】%0A ${questionSum} 問中 ${questionSum-WAs.length} 問正解！&url=https://www.penlight-quiz.com/hinata&hashtags=日向坂46,ペンライトQUIZ`} target="_blank" rel="noreferrer noopener"><BsTwitterX size="17" /> 結果をシェア</a>
             {
               WAs.length !==0 &&
               <>
