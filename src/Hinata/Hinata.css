@@ -3,7 +3,7 @@
     min-height: 100%;
 }
 
-.homeButton {
+.home-button {
     display: flex;
     justify-content: flex-end;
     padding: 10px;
@@ -54,4 +54,26 @@ button {
 #fibon {
     margin-top: 35px;
     padding-bottom: 10px;
+}
+
+.question {
+    font-weight: bold;
+    background-color: white;
+    width: 350px;
+    margin: 0 auto;
+    border-radius: 30px;
+}
+
+.question div:first-child {
+    margin: 0 0 0 auto;
+    width: fit-content;
+    font-size: 25px;
+    padding: 15px;
+}
+
+.question h2{
+    font-size: 30px;
+    span {
+        display: inline-block;
+    }
 }
