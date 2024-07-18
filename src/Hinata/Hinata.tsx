@@ -9,13 +9,13 @@ import { useState } from 'react';
 function Hinata() {
   const [page,setPage]=useState(0);
   return (
-    <div className='hinata'>
+    <>
       {page===0 &&
       <>
         <div className="home-button">
           <div>
             <Link to="/">
-              <IoMdHome color='black' size='50px' />
+              <IoMdHome color='#363636' size='50px' />
             </Link>
           </div>
         </div>
@@ -38,7 +38,7 @@ function Hinata() {
       {page===1 && <MemberToPenglightQuiz setPage={setPage}/> }
       {page===2 && <PenlightToMemberQuiz setPage={setPage}/> }
       {page===3 && <PenlightColorList setPage={setPage}/> }
-    </div>
+    </>
   );
 }
 
