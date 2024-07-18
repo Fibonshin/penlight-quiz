@@ -37,4 +37,3 @@ export default function Penlight({lColor,rColor,borderColor}:{lColor:keyof typeo
     </svg>
   )
 }
-// TODO :背景と同色の場合の縁取りを実装する
