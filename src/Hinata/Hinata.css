@@ -1,7 +1,7 @@
-.hinata {
+html {
     background-color: #BAECFF;
-    min-height: 100%;
 }
+
 
 .home-button {
     display: flex;
@@ -40,7 +40,7 @@ button {
     margin: 10px 0px;
     border: none;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: bold; 
     cursor: pointer;
 } 
 
@@ -49,6 +49,22 @@ button {
     font-size: 20px;
     width: 320px;
     height: 80px;
+}
+
+.btn2{
+    width: 305px;
+    font-size: 27px;
+}
+.btn3{
+    font-size: 27px;
+    width: 204px;
+}
+.btn4{
+    padding:0;
+    height:57px;
+    font-size: 19px;
+    width: 204px;
+    margin-top: 30px;
 }
 
 #fibon {
@@ -60,8 +76,9 @@ button {
     font-weight: bold;
     background-color: white;
     width: 350px;
-    margin: 0 auto;
+    margin: 0 auto 20px auto;
     border-radius: 30px;
+    position: relative;
 }
 
 .question div:first-child {
@@ -76,4 +93,72 @@ button {
     span {
         display: inline-block;
     }
+}
+
+.question h1{
+    font-size: 42px;
+}
+
+.lb-headline{
+    color: white;
+    font-weight: bold;
+    background-color: #00F0FF;
+    width:fit-content;
+    padding: 2px 10px 0 10px;
+    font-size: 22px;
+    margin-left: 30px;
+}
+
+.lb2 {
+    font-size: 32px;
+    position: absolute;
+    top:-10px;
+    left:-32px;
+}
+.lb3 {
+    font-size: 25px;
+    margin:40px 0px 5px 20px;
+}
+
+#editorial {
+    height: 640px;
+}
+
+
+#goto-next {
+    font-size: 27px;
+    width: 170px;
+}
+
+#kekkahappyo-{
+    font-size: 35px;
+    margin-top: 20px;
+    padding-bottom: 30px;
+    span{
+        font-size: 63px;
+    }
+}
+
+table{
+    width: 360px;
+    border-collapse: collapse;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+thead {
+    background-color: #737373;
+    color:white;
+}
+
+td {
+    border: 1px solid #959595;
+}
+
+tbody {
+    background-color: white;
+}
+
+.penlights {
+    padding: 10px;
 }
