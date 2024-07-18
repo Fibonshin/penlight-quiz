@@ -25,9 +25,9 @@ function Hinata() {
           <p>ペンライト</p>
           <p>QUIZ</p>
         </div>
-        <button className='btn1' onClick={()=> setPage(1)}>メンバー➔ペンライトカラー<br />QUIZ</button>
-        <br />
         <button className='btn1' onClick={()=> setPage(2)}>ペンライト➔カラーメンバー<br />4択QUIZ</button>
+        <br />
+        <button className='btn1' onClick={()=> setPage(1)}>メンバー➔ペンライトカラー<br />QUIZ</button>
         <br />
         <button className='btn1' onClick={()=> setPage(3)}>ペンライトカラー<br />一覧表示</button>
         <div id='fibon'>
