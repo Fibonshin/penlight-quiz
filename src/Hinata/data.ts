@@ -1,9 +1,11 @@
+import { Color } from "./Penlight"
+
 export interface Member {
    name:string,
    term:number,
    hiragana:boolean,
    graduated:boolean,
-   color:string[],
+   color:Color[],
 }
 
 export const perfectMessage=[
@@ -37,7 +39,7 @@ export const membersData:Member[]=[
       term:1,
       hiragana:false,
       graduated:true,
-      color:["	パールグリーン","	パールグリーン"]
+      color:["パールグリーン","パールグリーン"]
    },
    {
       name:"影山優佳",
@@ -156,7 +158,7 @@ export const membersData:Member[]=[
       term:2,
       hiragana:false,
       graduated:true,
-      color:["	ホワイト","パステルブルー"]
+      color:["ホワイト","パステルブルー"]
    },
    {
       name:"上村ひなの",
