@@ -1,45 +1,120 @@
 import './Hinata.css';
-import {Member} from './membersData';
-import { IoIosMenu } from "react-icons/io";
+import {Member,perfectMessage} from './data';
 import { useState } from 'react';
+import { IoMdHome } from "react-icons/io";
 import SelectQuestions from './SelectQuestions';
+import Editorial from './Editorial';
+import Penlight from './Penlight';
 
 function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAction<number>>}) {
   const [questionsData,setQuestionsData] = useState<{member:Member,options:string[]}[]>([]);
-  const [results,setResults] =useState<boolean[]>([]);
-  const questionNumber=results.length;
+  const [inEditorial,setInEditorial] = useState(false);
+  const [answers,setAnswers] =useState<string[]>([]);
+  const questionNumber=answers.length;
+  const questionSum=questionsData.length;
+  let WAs:{question:{member:Member,options:string[]},answer:string}[]=[];
+
+  if(!inEditorial && questionNumber===questionSum){
+    WAs=questionsData.map((question,idx) => ({question:question,answer:answers[idx]})).filter((wj)=> wj.question.member.name!==wj.answer);
+  }
+
+  function handleAnswer(myAnswer:string){
+    if(myAnswer!==questionsData[questionNumber].member.name)setInEditorial(true);
+    setAnswers([...answers,myAnswer]);
+  }
   return (
-    <div className='hinata'>
+    <>
       {
-        questionsData.length===0 ?
+        questionSum===0 ?
         <SelectQuestions setQuestionsData={setQuestionsData} setPage={setPage} />
         :
         <>
-          <div className="home-button">
-            <div onClick={()=>setPage(0)}>
-              <IoIosMenu color='black' size='50px' />
+        <div className="home-button">
+          <div onClick={()=>setPage(0)}>
+            <IoMdHome color='#363636' size='50px' />
+          </div>
+        </div>
+        {
+          inEditorial?
+          <Editorial member={questionsData[questionNumber-1].member} idx={questionNumber} total={questionSum} toNext={()=>setInEditorial(false)}/>
+          :
+          questionNumber < questionSum?
+          <>
+            <div className="question">
+              <div>{questionNumber+1}／{questionSum}</div>
+              <Penlight lColor={questionsData[questionNumber].member.color[0]} rColor={questionsData[questionNumber].member.color[1]} borderColor="ホワイト"/>
+              <h2><span>{questionsData[questionNumber].member.color[0]}</span><span> ✕ {questionsData[questionNumber].member.color[1]}</span></h2>
             </div>
-          </div>
-          <div className="question">
-            <div>{questionNumber+1}／{questionsData.length}</div>
-            ここにペンライトのイラストを挿入
-            <h2><span>{questionsData[questionNumber].member.color[0]}</span><span> ✕ {questionsData[questionNumber].member.color[1]}</span></h2>
-          </div>
-          <ol>
-          {
-            questionsData.map((question,x)=>
-              <li key={x}>
-              <h3>{question.member.name}</h3>
-              <ul>
-                {question.options.map((option,y)=> <li key={100*x+y}>{option}</li>)} 
-              </ul>
-              </li>
-            )
+            <div className="lb-headline">選択肢</div>
+            {
+              questionsData[questionNumber].options.map((op,idx)=>
+                <div key={idx}>
+                  <button className='btn2' onClick={()=>handleAnswer(op)}>{op}</button>
+                  <br />  
+                </div>
+              )
+            }
+          </>
+          :
+          <>
+            <div className="question">
+              <div></div>
+              <h1 id="kekkahappyo-">{questionSum}問中<span> {questionSum-WAs.length} </span>問正解</h1>
+              {
+                WAs.length===0 &&
+                <h2>{perfectMessage[Math.floor(Math.random()*perfectMessage.length)]}</h2>
+              }
+              <div className="lb-headline lb2">結果</div>
+            </div>
+            <button className='btn3' onClick={()=>{
+              setAnswers([]);
+              const prevQuestionData=questionsData.slice();
+              const NextQuestionData:{member:Member,options:string[]}[]=[];
+              while(prevQuestionData.length > 0){
+                const i=Math.floor(Math.random()*prevQuestionData.length);
+                NextQuestionData.push(prevQuestionData[i]);
+                prevQuestionData.splice(i,1);
+              }
+              setQuestionsData(NextQuestionData);
+            }}>もう一度やる</button>
+            <br /> 
+            <button className='btn3' onClick={()=>{setPage(0)}}>ホームに戻る</button>
+            {
+              WAs.length !==0 &&
+              <>
+                <div className="lb-headline lb3">間違えた問題</div>
+                <table>
+                  <thead>
+                    <tr>
+                      <td>ペンライトカラー</td>
+                      <td>答え</td>
+                      <td>自分の回答</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {
+                      WAs.map((wa,idx)=> (
+                        <tr key={idx}>
+                          <td>{wa.question.member.color[0]}<br/>✕ {wa.question.member.color[1]}</td>
+                          <td>{wa.question.member.name}</td>
+                          <td>{wa.answer}</td>
+                        </tr>
+                      ))
+                    }
+                  </tbody>
+                </table>
+                <button className='btn4' onClick={()=>{
+                  setQuestionsData(WAs.map((wa)=>wa.question));
+                  setAnswers([]);
+                }}>間違えた問題だけやる</button>
+              </>
+            }
+            
+          </>
           }
-          </ol>
         </>
       }
-    </div>
+    </>
   );
 }
 
