@@ -6,6 +6,17 @@ export interface Member {
    color:string[],
 }
 
+export const perfectMessage=[
+   "こんなに正解しちゃっていいの？",
+   "勝つしかねぇので！",
+   "完璧なの。",
+   "天才",
+   "全問正解しか勝たん",
+   "月と星が踊るPerfect",
+   "ｱﾊﾟｰ",
+   "全問正解したっていいじゃん♪"
+]
+
 export const membersData:Member[]=[
    {
       name:"井口眞緒",
@@ -260,3 +271,4 @@ export const membersData:Member[]=[
       color:["パープル","ピンク"]
    }
 ]
+
