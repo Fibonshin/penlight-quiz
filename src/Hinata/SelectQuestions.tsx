@@ -11,9 +11,13 @@ function SelectQuestions({setQuestionsData,setPage}:{
         return member[nowFilter.key]!==nowFilter.property;
       }).length===0;
     })
-    // const shuffledFilteredMembers:Member[]=[];
-    // setQuestionsData(shuffledFilteredMembers);
-    setQuestionsData(filteredMenbers);
+    const shuffledFilteredMembers:Member[]=[];
+    while(filteredMenbers.length > 0){
+      const i=Math.floor(Math.random()*filteredMenbers.length);
+      shuffledFilteredMembers.push(filteredMenbers[i]);
+      filteredMenbers.splice(i,1);
+    }
+    setQuestionsData(shuffledFilteredMembers);
   }
   return (
     <>
