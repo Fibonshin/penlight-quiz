@@ -30,6 +30,9 @@ function Hinata() {
         <button className='btn1' onClick={()=> setPage(2)}>ペンライト➔カラーメンバー<br />4択QUIZ</button>
         <br />
         <button className='btn1' onClick={()=> setPage(3)}>ペンライトカラー<br />一覧表示</button>
+        <div id='fibon'>
+          developed by <a href="https://x.com/fiboooo_" target="_blank" rel="noreferrer noopener">fibon</a>
+        </div>
       </>
       }
       {page===1 && <MemberToPenglightQuiz setPage={setPage}/> }
