@@ -7,14 +7,22 @@
     display: flex;
     justify-content: flex-end;
     padding: 10px;
-    margin-bottom: 30px;
 }
 
+.category {
+    color:white;
+    background-color: #FFB800;
+    width:220px;
+    margin:20px auto;
+    font-weight:bold;
+    font-size: 30px;
+    border-radius: 100px;
+}
 
 .title {
     width: 300px;
     height: 300px;
-    margin: 0px auto 70px auto;
+    margin: 30px auto 70px auto;
     border-radius: 50%;
     background-color: #FFB800;
     color: white;
@@ -41,4 +49,9 @@ button {
     font-size: 20px;
     width: 320px;
     height: 80px;
+}
+
+#fibon {
+    margin-top: 35px;
+    padding-bottom: 10px;
 }
