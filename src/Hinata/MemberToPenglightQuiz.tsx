@@ -6,7 +6,7 @@ function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateA
   const navigate=useNavigate();
   return (
     <div className='hinata'>
-      <div className="homeButton">
+      <div className="home-button">
         <div onClick={()=>setPage(0)}>
           <IoArrowUndoSharp color='black' size='50px' />
         </div>

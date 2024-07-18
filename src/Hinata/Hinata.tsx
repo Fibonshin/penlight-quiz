@@ -12,7 +12,7 @@ function Hinata() {
     <div className='hinata'>
       {page===0 &&
       <>
-        <div className="homeButton">
+        <div className="home-button">
           <div>
             <Link to="/">
               <IoMdHome color='black' size='50px' />
