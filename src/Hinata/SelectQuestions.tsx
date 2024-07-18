@@ -1,9 +1,8 @@
 import {membersData,Member} from './membersData';
 import { IoArrowUndoSharp } from "react-icons/io5";
 
-
 function SelectQuestions({setQuestionsData,setPage}:{
-  setQuestionsData:React.Dispatch<React.SetStateAction<Member[]>>,
+  setQuestionsData:React.Dispatch<React.SetStateAction<{member:Member,options:string[]}[]>>, // ←TODO こいつに選択肢もいれる [{Member,[選択肢1,選択肢2,選択肢3,選択肢4]},]
   setPage:React.Dispatch<React.SetStateAction<number>>}) {
   function onPlay(filters:{key:keyof Member,property:any}[]){
     const filteredMenbers=membersData.filter(function(member){
@@ -11,17 +10,34 @@ function SelectQuestions({setQuestionsData,setPage}:{
         return member[nowFilter.key]!==nowFilter.property;
       }).length===0;
     })
-    const shuffledFilteredMembers:Member[]=[];
-    while(filteredMenbers.length > 0){
-      const i=Math.floor(Math.random()*filteredMenbers.length);
-      shuffledFilteredMembers.push(filteredMenbers[i]);
-      filteredMenbers.splice(i,1);
+    const nextQuestionData=filteredMenbers.map((member)=>{
+      const options:string[]=[];
+      const filteredMenbersCopy=filteredMenbers.slice();
+      while(options.length<3){
+        const i=Math.floor(Math.random()*filteredMenbersCopy.length);
+
+        // 井口眞緒と正源司陽子など、色の組み合わせが同じメンバーを選択肢に入れない。
+        if(JSON.stringify(member.color.slice().sort())!==JSON.stringify(filteredMenbersCopy[i].color.slice().sort())){
+          options.push(filteredMenbersCopy[i].name);
+        }
+        filteredMenbersCopy.splice(i,1);
+      }
+      options.splice(Math.floor(Math.random()*4),0,member.name);
+      return {member:member,options:options};
+    });
+    
+    const shuffledNextQuestionData:{member:Member,options:string[]}[]=[];
+    while(nextQuestionData.length > 0){
+      const i=Math.floor(Math.random()*nextQuestionData.length);
+      shuffledNextQuestionData.push(nextQuestionData[i]);
+      nextQuestionData.splice(i,1);
     }
-    setQuestionsData(shuffledFilteredMembers);
+    setQuestionsData(shuffledNextQuestionData);
   }
+
   return (
     <>
-      <div className="homeButton">
+      <div className="home-button">
         <div onClick={()=>setPage(0)}>
           <IoArrowUndoSharp color='black' size='50px' />
         </div>

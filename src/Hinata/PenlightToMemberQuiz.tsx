@@ -5,7 +5,7 @@ import { useState } from 'react';
 import SelectQuestions from './SelectQuestions';
 
 function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAction<number>>}) {
-  const [questionsData,setQuestionsData] = useState<Member[]>([]);
+  const [questionsData,setQuestionsData] = useState<{member:Member,options:string[]}[]>([]);
   const [results,setResults] =useState<boolean[]>([]);
   const questionNumber=results.length;
   return (
@@ -23,9 +23,20 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
           <div className="question">
             <div>{questionNumber+1}／{questionsData.length}</div>
             ここにペンライトのイラストを挿入
-            <h2><span>{questionsData[questionNumber].color[0]}</span><span> ✕ {questionsData[questionNumber].color[1]}</span></h2>
+            <h2><span>{questionsData[questionNumber].member.color[0]}</span><span> ✕ {questionsData[questionNumber].member.color[1]}</span></h2>
           </div>
-          
+          <ol>
+          {
+            questionsData.map((question,x)=>
+              <li key={x}>
+              <h3>{question.member.name}</h3>
+              <ul>
+                {question.options.map((option,y)=> <li key={100*x+y}>{option}</li>)} 
+              </ul>
+              </li>
+            )
+          }
+          </ol>
         </>
       }
     </div>
