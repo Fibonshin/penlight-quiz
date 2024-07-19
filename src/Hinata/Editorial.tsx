@@ -1,5 +1,5 @@
 import { Member } from "./data"
-import Penlight from './Penlight';
+import Penlight from './svgs';
 
 function Editorial(
     {member,idx,total,toNext}

@@ -1,4 +1,4 @@
-import { Color } from "./Penlight"
+import { Color } from "./svgs"
 
 export interface Member {
    name:string,
