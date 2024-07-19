@@ -14,6 +14,7 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
   const [inEditorial,setInEditorial] = useState(false);
   const [answers,setAnswers] =useState<string[]>([]);
   const [currentAnswer,setCurrentAnswer] = useState<null|string>(null);
+  const [paused,setPaused]=useState(false);
   const questionNumber=answers.length;
   const questionSum=questionsData.length;
   let WAs:{question:{member:Member,options:string[]},answer:string}[]=[];
@@ -37,12 +38,24 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
         <SelectQuestions setQuestionsData={setQuestionsData} setPage={setPage} setCategory={setCategory}/>
         :
         <>
-        <div className="home-button">
-          <div onClick={()=>setPage(0)}>
-            <IoMdHome color='#363636' size='50px' />
+          {
+            paused && 
+            <>
+              <div className="cover-all" onClick={()=>setPaused(false)}>
+              </div>
+              <div className="ask-gohome">
+                <h3>ホーム画面へ戻りますか？</h3>
+                <button className='btn-no' onClick={()=>setPaused(false)}>いいえ</button>
+                <button className='btn-yes' onClick={()=>setPage(0)}>はい</button>
+              </div>
+            </> 
+          }
+          <div className="home-button">
+            <div onClick={()=>setPaused(true)}>
+              <IoMdHome color='#363636' size='50px' />
+            </div>
           </div>
-        </div>
-        {
+          {
           inEditorial?
           <Editorial member={questionsData[questionNumber-1].member} idx={questionNumber} total={questionSum} toNext={()=>setInEditorial(false)}/>
           :
