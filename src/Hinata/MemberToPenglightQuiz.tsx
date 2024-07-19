@@ -25,7 +25,7 @@ function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateA
 
   if(!inEditorial && questionNumber===questionSum){
     WAs=questionsData.map((question,idx) => ({question:question,answer:answers[idx]})).filter((wj)=>
-      (JSON.stringify(Object.values(wj.answer).sort()))===JSON.stringify(wj.question.member.color.slice().sort())
+      (JSON.stringify(Object.values(wj.answer).sort()))!==JSON.stringify(wj.question.member.color.slice().sort())
     );
   }
 
@@ -106,6 +106,68 @@ function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateA
           </>
           :
           <>
+            <div className="question">
+              <div></div>
+              <div className="show-category">{category}</div>
+              <h1 id="kekkahappyo-">{questionSum}問中<span id={(WAs.length===0 && questionSum >= 4) ? 'perfect':''}> {questionSum-WAs.length} </span>問正解</h1>
+              {
+                (WAs.length===0 && questionSum >= 4) &&
+                <h2 id='perf-msg'>{perfectMessage}</h2>
+              }
+              <div className="lb-headline lb2">結果</div>
+              {WAs.length !==0 && <div className="lb-headline lb3">間違えた問題</div>}
+            </div>
+            <button className='btn3' onClick={()=>{
+              setAnswers([]);
+              const prevQuestionData=questionsData.slice();
+              const NextQuestionData:typeof questionsData=[];
+              while(prevQuestionData.length > 0){
+                const i=Math.floor(Math.random()*prevQuestionData.length);
+                NextQuestionData.push(prevQuestionData[i]);
+                prevQuestionData.splice(i,1);
+              }
+              setQuestionsData(NextQuestionData);
+            }}>もう一度やる</button>
+            <br /> 
+            <button className='btn3' id="goto-home" onClick={()=>{setPage(0)} }>ホームに戻る</button>
+            <br />
+            <a className='share' href={`https://x.com/intent/post?text=☀️日向坂46ペンライトQUIZ☀️%0Aメンバー➔ペンライトカラーQUIZ【${category}】%0A%0A ${questionSum} 問中 ${questionSum-WAs.length} 問正解${WAs.length===0?'🎉':'！'}%0A&url=https://www.penlight-quiz.com/hinata&hashtags=日向坂46,ペンライトQUIZ`} target="_blank" rel="noreferrer noopener"><BsTwitterX size="17" /> 結果をシェア</a>
+            {
+              WAs.length !==0 &&
+              <>
+                <table className='tb1'>
+                  <thead>
+                    <tr>
+                      <td>名前</td>
+                      <td>答え</td>
+                      <td>自分の回答</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {
+                      WAs.map((wa,idx)=> (
+                        <tr key={idx}>
+                          <td>{wa.question.member.name}</td>
+                          <td id='penpen'>
+                            <MiniPenlight lColor={wa.question.member.color[0]} rColor={wa.question.member.color[1]} height={32} borderColor="ホワイト"/>
+                            {wa.question.member.color[0]}<br/>✕ {wa.question.member.color[1]}
+                          </td>
+                          <td id='penpen'>
+                            <MiniPenlight lColor={wa.answer.l} rColor={wa.answer.r} height={32} borderColor="ホワイト"/>
+                            {wa.answer.l}<br/>✕ {wa.answer.r}
+                          </td>
+                        </tr>
+                      ))
+                    }
+                  </tbody>
+                </table>
+                <button className='btn4' onClick={()=>{
+                  setQuestionsData(WAs.map((wa)=>wa.question));
+                  setAnswers([]);
+                }}>間違えた問題だけやる</button>
+              </>
+            }
+
           </>
           }
         </>
