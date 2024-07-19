@@ -6,12 +6,12 @@ function SelectQuestions({setQuestionsData,setPage,setCategory,setPerfectMessasg
   setQuestionsData:React.Dispatch<React.SetStateAction<{member:Member,options:string[]}[]>>,
   setPage:React.Dispatch<React.SetStateAction<number>>,
   setCategory:React.Dispatch<React.SetStateAction<string>>,
-  setPerfectMessasge:React.Dispatch<React.SetStateAction<string>>,
+  setPerfectMessasge?:React.Dispatch<React.SetStateAction<string>>,
   }) {
     
   function onPlay({filters,category}:{filters:{key:keyof Member,property:any}[],category:string}){
     setCategory(category);
-    setPerfectMessasge(perfectMessages[Math.floor(Math.random()*perfectMessages.length)]);
+    if(setPerfectMessasge!==undefined)setPerfectMessasge(perfectMessages[Math.floor(Math.random()*perfectMessages.length)]);
     const filteredMenbers=membersData.filter(function(member){
       return filters.filter(nowFilter =>{
         return member[nowFilter.key]!==nowFilter.property;
