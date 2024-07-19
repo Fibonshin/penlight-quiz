@@ -1,5 +1,5 @@
 import './Hinata.css';
-import {Member,perfectMessage} from './data';
+import {Member} from './data';
 import { useState } from 'react';
 import { IoMdHome } from "react-icons/io";
 import SelectQuestions from './SelectQuestions';
@@ -15,6 +15,7 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
   const [answers,setAnswers] =useState<string[]>([]);
   const [currentAnswer,setCurrentAnswer] = useState<null|string>(null);
   const [paused,setPaused]=useState(false);
+  const [perfectMessage,setPerfectMessasge]=useState("");
   const questionNumber=answers.length;
   const questionSum=questionsData.length;
   let WAs:{question:{member:Member,options:string[]},answer:string}[]=[];
@@ -35,7 +36,7 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
     <>
       {
         questionSum===0 ?
-        <SelectQuestions setQuestionsData={setQuestionsData} setPage={setPage} setCategory={setCategory}/>
+        <SelectQuestions setQuestionsData={setQuestionsData} setPage={setPage} setCategory={setCategory} setPerfectMessasge={setPerfectMessasge}/>
         :
         <>
           {
@@ -85,7 +86,7 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
               <h1 id="kekkahappyo-">{questionSum}問中<span id={(WAs.length===0 && questionSum >= 4) ? 'perfect':''}> {questionSum-WAs.length} </span>問正解</h1>
               {
                 (WAs.length===0 && questionSum >= 4) &&
-                <h2 id='perf-msg'>{perfectMessage[Math.floor(Math.random()*perfectMessage.length)]}</h2>
+                <h2 id='perf-msg'>{perfectMessage}</h2>
               }
               <div className="lb-headline lb2">結果</div>
               {WAs.length !==0 && <div className="lb-headline lb3">間違えた問題</div>}
@@ -104,7 +105,7 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
             <br /> 
             <button className='btn3' id="goto-home" onClick={()=>{setPage(0)} }>ホームに戻る</button>
             <br />
-            <a className='share' href={`https://x.com/intent/post?text=日向坂46ペンライトQUIZ【${category}】%0A ${questionSum} 問中 ${questionSum-WAs.length} 問正解！&url=https://www.penlight-quiz.com/hinata&hashtags=日向坂46,ペンライトQUIZ`} target="_blank" rel="noreferrer noopener"><BsTwitterX size="17" /> 結果をシェア</a>
+            <a className='share' href={`https://x.com/intent/post?text=日向坂46ペンライトQUIZ【${category}】%0A ${questionSum} 問中 ${questionSum-WAs.length} 問正解${WAs.length===0?'🎉':'！'}&url=https://www.penlight-quiz.com/hinata&hashtags=日向坂46,ペンライトQUIZ`} target="_blank" rel="noreferrer noopener"><BsTwitterX size="17" /> 結果をシェア</a>
             {
               WAs.length !==0 &&
               <>

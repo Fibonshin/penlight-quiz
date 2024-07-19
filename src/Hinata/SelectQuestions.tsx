@@ -1,14 +1,17 @@
 import {membersData,Member} from './data';
 import { IoArrowUndoSharp } from "react-icons/io5";
+import { perfectMessages } from './data';
 
-function SelectQuestions({setQuestionsData,setPage,setCategory}:{
+function SelectQuestions({setQuestionsData,setPage,setCategory,setPerfectMessasge}:{
   setQuestionsData:React.Dispatch<React.SetStateAction<{member:Member,options:string[]}[]>>,
-  setPage:React.Dispatch<React.SetStateAction<number>>
-  setCategory:React.Dispatch<React.SetStateAction<string>>
+  setPage:React.Dispatch<React.SetStateAction<number>>,
+  setCategory:React.Dispatch<React.SetStateAction<string>>,
+  setPerfectMessasge:React.Dispatch<React.SetStateAction<string>>,
   }) {
     
   function onPlay({filters,category}:{filters:{key:keyof Member,property:any}[],category:string}){
     setCategory(category);
+    setPerfectMessasge(perfectMessages[Math.floor(Math.random()*perfectMessages.length)]);
     const filteredMenbers=membersData.filter(function(member){
       return filters.filter(nowFilter =>{
         return member[nowFilter.key]!==nowFilter.property;

@@ -8,7 +8,7 @@ export interface Member {
    color:Color[],
 }
 
-export const perfectMessage=[
+export const perfectMessages=[
    "こんなに正解しちゃっていいの？",
    "勝つしかねぇので！",
    "完璧なの。",
