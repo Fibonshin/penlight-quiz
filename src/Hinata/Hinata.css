@@ -292,6 +292,7 @@ tbody {
     position: relative;
     width: 300px;
     margin:0 auto;
+    margin-bottom: 30px;
 }
 
 .color-text h4:first-child{
@@ -302,4 +303,31 @@ tbody {
 .color-text h4:last-child{
     position: absolute;
     left: 165px;
+}
+
+.color-picker {
+    background-color: white;
+    overflow: scroll;
+    width: 330px;
+    margin: 0 auto;
+    border-radius: 100px;
+}
+
+.color-picker ul{
+    display: flex;
+    margin: 0 auto;
+}
+.color-picker ul li {
+    display: inline-block;
+    padding: 10px 15px 0px 15px;
+    height: 50px;
+}
+.color-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+}
+
+.circle-border {
+    border: solid 0.5px gray;
 }

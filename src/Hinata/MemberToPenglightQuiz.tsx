@@ -1,11 +1,11 @@
 import './Hinata.css';
-import {Member} from './data';
+import {Member,Color,transColor} from './data';
 import { useState } from 'react';
 import { IoMdHome } from "react-icons/io";
 import SelectQuestions from './SelectQuestions';
 import Editorial from './Editorial';
 import Penlight from './svgs';
-import { MiniPenlight ,Circle,Cross,Color} from './svgs';
+import { MiniPenlight ,Circle,Cross} from './svgs';
 import { BsTwitterX } from "react-icons/bs";
 
 function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAction<number>>}) {
@@ -58,6 +58,17 @@ function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateA
           <div className="color-text">
             <h4>{questionsData[questionNumber].member.color[0]}</h4>
             <h4>{questionsData[questionNumber].member.color[1]}</h4>
+          </div>
+          <div className="color-picker">
+            <ul>
+              {
+                (Object.keys(transColor) as (Color)[]).map((color,idx)=>(
+                  <li key={idx}>
+                    <div className={`color-circle ${color==='ホワイト'?'circle-border':''}`} style={{backgroundColor:transColor[color]}}></div>
+                  </li>
+                ))
+              }
+            </ul>
           </div>
           </>
           :
