@@ -5,6 +5,7 @@ import { IoMdHome } from "react-icons/io";
 import SelectQuestions from './SelectQuestions';
 import Editorial from './Editorial';
 import Penlight from './Penlight';
+import { MiniPenlight } from './Penlight';
 import { BsTwitterX } from "react-icons/bs";
 
 function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAction<number>>}) {
@@ -44,7 +45,7 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
           <>
             <div className="question">
               <div>{questionNumber+1}／{questionSum}</div>
-              <Penlight lColor={questionsData[questionNumber].member.color[0]} rColor={questionsData[questionNumber].member.color[1]} borderColor="ホワイト" size={107}/>
+              <Penlight lColor={questionsData[questionNumber].member.color[0]} rColor={questionsData[questionNumber].member.color[1]} borderColor="ホワイト"/>
               <h2 id='hoge3'><span>{questionsData[questionNumber].member.color[0]}</span><span> ✕ {questionsData[questionNumber].member.color[1]}</span></h2>
             </div>
             <div className="lb-headline">選択肢</div>
@@ -101,7 +102,7 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
                       WAs.map((wa,idx)=> (
                         <tr key={idx}>
                           <td id='penpen'>
-                            <Penlight lColor={wa.question.member.color[0]} rColor={wa.question.member.color[1]} borderColor="ホワイト" size={22}/>
+                            <MiniPenlight lColor={wa.question.member.color[0]} rColor={wa.question.member.color[1]} borderColor="ホワイト"/>
                             {wa.question.member.color[0]}<br/>✕ {wa.question.member.color[1]}
                           </td>
                           <td>{wa.question.member.name}</td>
