@@ -13,7 +13,7 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
   const [category,setCategory] =useState<string>("");
   const [inEditorial,setInEditorial] = useState(false);
   const [answers,setAnswers] =useState<string[]>([]);
-  const [judge,setJudge] = useState<null|'x'|'o'>(null);
+  const [currentAnswer,setCurrentAnswer] = useState<null|string>(null);
   const questionNumber=answers.length;
   const questionSum=questionsData.length;
   let WAs:{question:{member:Member,options:string[]},answer:string}[]=[];
@@ -22,8 +22,8 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
     WAs=questionsData.map((question,idx) => ({question:question,answer:answers[idx]})).filter((wj)=> wj.question.member.name!==wj.answer);
   }
   function handleJudge(myAnswer:string){
-    setJudge(myAnswer===questionsData[questionNumber].member.name?'o':'x');
-    setTimeout(()=> {setJudge(null);handleAnswer(myAnswer)},500000);
+    setCurrentAnswer(myAnswer);
+    setTimeout(()=> {setCurrentAnswer(null);handleAnswer(myAnswer)},500);
   }
 
   function handleAnswer(myAnswer:string){
@@ -52,13 +52,13 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
               <div>{questionNumber+1}／{questionSum}</div>
               <Penlight lColor={questionsData[questionNumber].member.color[0]} rColor={questionsData[questionNumber].member.color[1]} borderColor="ホワイト"/>
               <h2 id='hoge3'><span>{questionsData[questionNumber].member.color[0]}</span><span> ✕ {questionsData[questionNumber].member.color[1]}</span></h2>
-              {judge!==null && (judge==='o'?<Circle/>:<Cross/>)}
+              {currentAnswer!==null && (currentAnswer===questionsData[questionNumber].member.name?<Circle/>:<Cross/>)}
               <div className="lb-headline lb1">選択肢</div>
             </div>
             {
               questionsData[questionNumber].options.map((op,idx)=>
                 <div key={idx}>
-                  <button className='btn2' onClick={()=>handleJudge(op)}>{op}</button>
+                  <button className={`btn2 ${currentAnswer!==null?'disable-click':''} ${currentAnswer===op?'selected':''}`} onClick={()=>handleJudge(op)}>{op}</button>
                   <br />  
                 </div>
               )
@@ -75,6 +75,7 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
                 <h2 id='perf-msg'>{perfectMessage[Math.floor(Math.random()*perfectMessage.length)]}</h2>
               }
               <div className="lb-headline lb2">結果</div>
+              {WAs.length !==0 && <div className="lb-headline lb3">間違えた問題</div>}
             </div>
             <button className='btn3' onClick={()=>{
               setAnswers([]);
@@ -95,7 +96,6 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
               WAs.length !==0 &&
               <>
                 <table>
-                  <div className="lb-headline lb3">間違えた問題</div>
                   <thead>
                     <tr>
                       <td>ペンライトカラー</td>

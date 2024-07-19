@@ -55,6 +55,7 @@ button {
     width: 305px;
     font-size: 27px;
 }
+
 .btn3{
     font-size: 27px;
     width: 204px;
@@ -125,8 +126,8 @@ button {
     font-size: 25px;
     margin:40px 0px 5px 20px;
     position: absolute;
-    top: -83px;
-    left: -20px;
+    top: 485px;
+    left: -25px;
 }
 
 #editorial {
@@ -238,4 +239,12 @@ tbody {
     position: absolute;
     top: 80px;
     left: 74px;
+}
+
+.disable-click {
+    pointer-events: none;
+}
+
+.selected {
+    background-color: #ff7300e7;
 }
