@@ -17,22 +17,45 @@ function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateA
   const [currentAnswer,setCurrentAnswer] = useState<{l:Color,r:Color}>({l:'パステルブルー',r:'パステルブルー'});
   const [paused,setPaused]=useState(false);
   const [centered,setCentered]=useState(false);
+  const [judge,setJudge]=useState<null|boolean>(null);
   const [perfectMessage,setPerfectMessasge]=useState("");
   const questionNumber=answers.length;
   const questionSum=questionsData.length;
   let WAs:{question:{member:Member,options:string[]},answer:{l:Color,r:Color}}[]=[];
 
+  if(!inEditorial && questionNumber===questionSum){
+    WAs=questionsData.map((question,idx) => ({question:question,answer:answers[idx]})).filter((wj)=>
+      (JSON.stringify(Object.values(wj.answer).sort()))===JSON.stringify(wj.question.member.color.slice().sort())
+    );
+  }
+
   useEffect(()=>{
     if(centered)return;
     let targetL = document.getElementById('l2');
+    let targetaL = document.getElementById('al2');
     let targetR = document.getElementById('r2');
-    if(targetL && targetR){
+    let targetaR = document.getElementById('ar2');
+    if(targetL && targetR && targetaL && targetaR){
+      targetaL.scrollIntoView();
       targetL.scrollIntoView();
+      targetaR.scrollIntoView();
       targetR.scrollIntoView();
       setCentered(true);
     }
   });
 
+  function handleJudge(){
+    setJudge((JSON.stringify(Object.values(currentAnswer).sort()))===JSON.stringify(questionsData[questionNumber].member.color.slice().sort()));
+    setTimeout(()=>{handleAnswer()},500);
+  }
+
+  function handleAnswer(){
+    if((JSON.stringify(Object.values(currentAnswer).sort()))!==JSON.stringify(questionsData[questionNumber].member.color.slice().sort()))setInEditorial(true);
+    setJudge(null);
+    setCentered(false);
+    setAnswers([...answers,currentAnswer]);
+    setCurrentAnswer({l:'パステルブルー',r:'パステルブルー'})
+  }
   return (
     <>
       {
@@ -64,6 +87,7 @@ function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateA
           questionNumber < questionSum?
           <>
           <div className="question">
+            {judge!==null && (judge?<Circle/>:<Cross/>)}
             <div>{questionNumber+1}／{questionSum}</div>
             <h1>{questionsData[questionNumber].member.name}</h1>
             <br />
@@ -78,6 +102,7 @@ function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateA
           </div>
           <ColorPicker currentAnswer={currentAnswer} setCurrentAnswer={setCurrentAnswer} target='l'/>
           <ColorPicker currentAnswer={currentAnswer} setCurrentAnswer={setCurrentAnswer} target='r'/>
+          <button className={judge!==null?'disable-click':''} id="goto-answer" onClick={handleJudge}>答え合わせ</button>
           </>
           :
           <>

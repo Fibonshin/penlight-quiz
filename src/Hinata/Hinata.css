@@ -82,7 +82,7 @@ button {
     position: relative;
 }
 
-.question div:first-child {
+.question div:first-of-type {
     margin: 0 0 0 auto;
     width: fit-content;
     font-size: 25px;
@@ -131,9 +131,9 @@ button {
 }
 .lbl {
     position: absolute;
-    top: 30px;
+    top: 20px;
     left:-45px;
-    z-index: 10;
+    z-index: 5;
     height: 31px;
     width: 40px;
     padding: 0 10px;
@@ -141,9 +141,9 @@ button {
 
 .lbr {
     position: absolute;
-    top: 162px;
+    top: 130px;
     left:-45px;
-    z-index: 10;
+    z-index: 5;
     height: 31px;
     width: 40px;
     padding: 0 10px;
@@ -156,6 +156,11 @@ button {
 
 #goto-next {
     font-size: 27px;
+    width: 170px;
+}
+
+#goto-answer {
+    font-size: 26px;
     width: 170px;
 }
 
@@ -311,7 +316,7 @@ tbody {
     position: relative;
     width: 300px;
     margin:0 auto;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .color-text h4:first-of-type{
@@ -326,9 +331,9 @@ tbody {
 
 .color-picker {
     background-color: white;
-    overflow: scroll;
+    overflow-x: scroll;
     width: 330px;
-    margin: 50px auto;
+    margin: 30px auto 20px auto;
     border-radius: 100px;
     position: relative;
 }
