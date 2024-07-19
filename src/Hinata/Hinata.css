@@ -285,3 +285,21 @@ tbody {
 .list-table {
     margin-top: 0;
 }
+
+.color-text {
+    font-weight: bold;
+    font-size: 14px;
+    position: relative;
+    width: 300px;
+    margin:0 auto;
+}
+
+.color-text h4:first-child{
+    position: absolute;
+    right: 165px;
+}
+
+.color-text h4:last-child{
+    position: absolute;
+    left: 165px;
+}
