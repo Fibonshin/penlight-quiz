@@ -94,7 +94,7 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
             <button className='btn3' onClick={()=>{
               setAnswers([]);
               const prevQuestionData=questionsData.slice();
-              const NextQuestionData:{member:Member,options:string[]}[]=[];
+              const NextQuestionData:typeof questionsData=[];
               while(prevQuestionData.length > 0){
                 const i=Math.floor(Math.random()*prevQuestionData.length);
                 NextQuestionData.push(prevQuestionData[i]);
@@ -105,7 +105,7 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
             <br /> 
             <button className='btn3' id="goto-home" onClick={()=>{setPage(0)} }>ホームに戻る</button>
             <br />
-            <a className='share' href={`https://x.com/intent/post?text=日向坂46ペンライトQUIZ【${category}】%0A ${questionSum} 問中 ${questionSum-WAs.length} 問正解${WAs.length===0?'🎉':'！'}&url=https://www.penlight-quiz.com/hinata&hashtags=日向坂46,ペンライトQUIZ`} target="_blank" rel="noreferrer noopener"><BsTwitterX size="17" /> 結果をシェア</a>
+            <a className='share' href={`https://x.com/intent/post?text=☀️日向坂46ペンライトQUIZ☀️%0Aペンライトカラー➔メンバー4択QUIZ【${category}】%0A%0A ${questionSum} 問中 ${questionSum-WAs.length} 問正解${WAs.length===0?'🎉':'！'}%0A&url=https://www.penlight-quiz.com/hinata&hashtags=日向坂46,ペンライトQUIZ`} target="_blank" rel="noreferrer noopener"><BsTwitterX size="17" /> 結果をシェア</a>
             {
               WAs.length !==0 &&
               <>

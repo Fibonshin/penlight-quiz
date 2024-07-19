@@ -7,6 +7,7 @@ function ColorPicker({currentAnswer,setCurrentAnswer,target}:{currentAnswer:{l: 
           (Object.keys(transColor) as (Color)[]).slice(1).map((color,idx)=>(
             <li key={idx}>
               <div 
+              id={`a${target+idx}`} 
               className={`color-circle ${color==='ホワイト'?'circle-border':''} ${color===currentAnswer[target]?'selected-circle':''}`} 
               style={{backgroundColor:transColor[color]}}
               onClick={()=>setCurrentAnswer((prevAnswer)=>{
