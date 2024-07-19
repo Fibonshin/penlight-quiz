@@ -1,4 +1,22 @@
-import { Color } from "./svgs"
+export const transColor={
+   "パステルブルー":"#00BFFF",
+   "エメラルドグリーン":"#00FA9A",
+   "グリーン":"#00FF00",
+   "パールグリーン":"#00FF7F",
+   "ライトグリーン":"#EBFF00",
+   "イエロー":"#FFFF00",
+   "オレンジ":"#FFA500",
+   "レッド":"#FF0000",
+   "ホワイト":"#FFF",
+   "サクラピンク":"#FF87CF",
+   "ピンク":"#FF2883",
+   "パッションピンク":"#FF2055",
+   "バイオレット":"#C750FF",
+   "パープル":"#7A3CFF",
+   "ブルー":"#0000FF"
+}
+export type Color=keyof typeof transColor;
+export const colors=Object.keys(transColor);
 
 export interface Member {
    name:string,

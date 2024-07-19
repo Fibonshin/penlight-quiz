@@ -1,23 +1,6 @@
-const transColor={
-  "パステルブルー":"#00BFFF",
-  "エメラルドグリーン":"#00FA9A",
-  "グリーン":"#00FF00",
-  "パールグリーン":"#00FF7F",
-  "ライトグリーン":"#EBFF00",
-  "イエロー":"#FFFF00",
-  "オレンジ":"#FFA500",
-  "レッド":"#FF0000",
-  "ホワイト":"#FFF",
-  "サクラピンク":"#FF87CF",
-  "ピンク":"#FF2883",
-  "パッションピンク":"#FF2055",
-  "バイオレット":"#C750FF",
-  "パープル":"#7A3CFF",
-  "ブルー":"#0000FF"
-}
-export type Color=keyof typeof transColor;
+import { transColor,Color} from "./data"
 
-export default function Penlight({lColor,rColor,borderColor}:{lColor:keyof typeof transColor,rColor:keyof typeof transColor,borderColor?:keyof typeof transColor}) {
+export default function Penlight({lColor,rColor,borderColor}:{lColor:Color,rColor:Color,borderColor?:Color}) {
   return (
     <svg width="107" height="219" viewBox="0 0 107 219" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="81" width="24" height="218" rx="3.2" fill="url(#paint0_linear_73_12)" stroke="black" strokeWidth={rColor===borderColor?"0.5":"0"}/>
@@ -38,7 +21,7 @@ export default function Penlight({lColor,rColor,borderColor}:{lColor:keyof typeo
   )
 }
 
-export function MiniPenlight({lColor,rColor,borderColor}:{lColor:keyof typeof transColor,rColor:keyof typeof transColor,borderColor?:keyof typeof transColor}){
+export function MiniPenlight({lColor,rColor,borderColor}:{lColor:Color,rColor:Color,borderColor?:Color}){
   return(
   <svg width="20" height="43" viewBox="0 0 9 24" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect x="0.221387" y="0.05" width="2.55714" height="14.3" rx="0.292857" fill={transColor[lColor]} stroke="black" strokeWidth={lColor===borderColor?"0.1":"0"}/>
