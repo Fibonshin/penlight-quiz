@@ -76,7 +76,7 @@ button {
     font-weight: bold;
     background-color: white;
     width: 350px;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 50px auto;
     border-radius: 30px;
     position: relative;
 }
@@ -109,6 +109,12 @@ button {
     margin-left: 30px;
 }
 
+.lb1 {
+    position: absolute;
+    bottom: -52px;
+    left: -10px;
+}
+
 .lb2 {
     font-size: 32px;
     position: absolute;
@@ -118,6 +124,9 @@ button {
 .lb3 {
     font-size: 25px;
     margin:40px 0px 5px 20px;
+    position: absolute;
+    top: -83px;
+    left: -20px;
 }
 
 #editorial {
@@ -144,7 +153,9 @@ table{
     border-collapse: collapse;
     font-weight: bold;
     margin: 0 auto;
+    margin-top: 80px;
     font-size: 15px;
+    position: relative;
 }
 
 thead {

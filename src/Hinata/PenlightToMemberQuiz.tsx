@@ -47,8 +47,8 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
               <div>{questionNumber+1}／{questionSum}</div>
               <Penlight lColor={questionsData[questionNumber].member.color[0]} rColor={questionsData[questionNumber].member.color[1]} borderColor="ホワイト"/>
               <h2 id='hoge3'><span>{questionsData[questionNumber].member.color[0]}</span><span> ✕ {questionsData[questionNumber].member.color[1]}</span></h2>
+              <div className="lb-headline lb1">選択肢</div>
             </div>
-            <div className="lb-headline">選択肢</div>
             {
               questionsData[questionNumber].options.map((op,idx)=>
                 <div key={idx}>
@@ -88,8 +88,8 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
             {
               WAs.length !==0 &&
               <>
-                <div className="lb-headline lb3">間違えた問題</div>
                 <table>
+                  <div className="lb-headline lb3">間違えた問題</div>
                   <thead>
                     <tr>
                       <td>ペンライトカラー</td>
