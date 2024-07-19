@@ -14,8 +14,8 @@ function Hinata() {
       <>
         <div className="home-button">
           <div>
-            <Link to="/">
-              <IoMdHome color='#363636' size='50px' />
+            <Link to="/hinata">
+              <IoMdHome color='#363636' opacity={0} size='50px' />
             </Link>
           </div>
         </div>
