@@ -1,23 +1,38 @@
 import './Hinata.css';
 import {Member,Color,transColor} from './data';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IoMdHome } from "react-icons/io";
 import SelectQuestions from './SelectQuestions';
 import Editorial from './Editorial';
 import Penlight from './svgs';
 import { MiniPenlight ,Circle,Cross} from './svgs';
 import { BsTwitterX } from "react-icons/bs";
+import ColorPicker from './ColorPicker';
 
 function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAction<number>>}) {
   const [questionsData,setQuestionsData] = useState<{member:Member,options:string[]}[]>([]);
   const [category,setCategory] =useState<string>("");
   const [inEditorial,setInEditorial] = useState(false);
   const [answers,setAnswers] =useState<{l:Color,r:Color}[]>([]);
+  const [currentAnswer,setCurrentAnswer] = useState<{l:Color,r:Color}>({l:'パステルブルー',r:'パステルブルー'});
   const [paused,setPaused]=useState(false);
+  const [centered,setCentered]=useState(false);
   const [perfectMessage,setPerfectMessasge]=useState("");
   const questionNumber=answers.length;
   const questionSum=questionsData.length;
   let WAs:{question:{member:Member,options:string[]},answer:{l:Color,r:Color}}[]=[];
+
+  useEffect(()=>{
+    if(centered)return;
+    let targetL = document.getElementById('l2');
+    let targetR = document.getElementById('r2');
+    if(targetL && targetR){
+      targetL.scrollIntoView();
+      targetR.scrollIntoView();
+      setCentered(true);
+    }
+  });
+
   return (
     <>
       {
@@ -53,23 +68,16 @@ function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateA
             <h1>{questionsData[questionNumber].member.name}</h1>
             <br />
           </div>
-          <Penlight lColor={questionsData[questionNumber].member.color[0]} rColor={questionsData[questionNumber].member.color[1]}/>
+          <Penlight lColor={currentAnswer.l} rColor={currentAnswer.r}/>
           <br />  
           <div className="color-text">
-            <h4>{questionsData[questionNumber].member.color[0]}</h4>
-            <h4>{questionsData[questionNumber].member.color[1]}</h4>
+            <h4>{currentAnswer.l}</h4>
+            <h4>{currentAnswer.r}</h4>
+            <div className="lb-headline lbl">左</div>
+            <div className="lb-headline lbr">右</div>
           </div>
-          <div className="color-picker">
-            <ul>
-              {
-                (Object.keys(transColor) as (Color)[]).map((color,idx)=>(
-                  <li key={idx}>
-                    <div className={`color-circle ${color==='ホワイト'?'circle-border':''}`} style={{backgroundColor:transColor[color]}}></div>
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
+          <ColorPicker currentAnswer={currentAnswer} setCurrentAnswer={setCurrentAnswer} target='l'/>
+          <ColorPicker currentAnswer={currentAnswer} setCurrentAnswer={setCurrentAnswer} target='r'/>
           </>
           :
           <>

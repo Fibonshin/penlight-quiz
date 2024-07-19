@@ -129,6 +129,25 @@ button {
     top: 485px;
     left: -25px;
 }
+.lbl {
+    position: absolute;
+    top: 30px;
+    left:-45px;
+    z-index: 10;
+    height: 31px;
+    width: 40px;
+    padding: 0 10px;
+}
+
+.lbr {
+    position: absolute;
+    top: 162px;
+    left:-45px;
+    z-index: 10;
+    height: 31px;
+    width: 40px;
+    padding: 0 10px;
+}
 
 #editorial {
     height: 640px;
@@ -295,12 +314,12 @@ tbody {
     margin-bottom: 30px;
 }
 
-.color-text h4:first-child{
+.color-text h4:first-of-type{
     position: absolute;
     right: 165px;
 }
 
-.color-text h4:last-child{
+.color-text h4:last-of-type{
     position: absolute;
     left: 165px;
 }
@@ -309,8 +328,9 @@ tbody {
     background-color: white;
     overflow: scroll;
     width: 330px;
-    margin: 0 auto;
+    margin: 50px auto;
     border-radius: 100px;
+    position: relative;
 }
 
 .color-picker ul{
@@ -319,8 +339,8 @@ tbody {
 }
 .color-picker ul li {
     display: inline-block;
-    padding: 10px 15px 0px 15px;
-    height: 50px;
+    padding: 20px 15px 0px 15px;
+    height: 60px;
 }
 .color-circle {
     width: 40px;
@@ -330,4 +350,10 @@ tbody {
 
 .circle-border {
     border: solid 0.5px gray;
+}
+
+.selected-circle {
+    margin-top: -7px;
+    width: 55px;
+    height: 55px;
 }
