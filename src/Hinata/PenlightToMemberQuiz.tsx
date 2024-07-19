@@ -4,8 +4,8 @@ import { useState } from 'react';
 import { IoMdHome } from "react-icons/io";
 import SelectQuestions from './SelectQuestions';
 import Editorial from './Editorial';
-import Penlight from './Penlight';
-import { MiniPenlight } from './Penlight';
+import Penlight from './svgs';
+import { MiniPenlight ,Circle,Cross} from './svgs';
 import { BsTwitterX } from "react-icons/bs";
 
 function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAction<number>>}) {
@@ -13,12 +13,17 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
   const [category,setCategory] =useState<string>("");
   const [inEditorial,setInEditorial] = useState(false);
   const [answers,setAnswers] =useState<string[]>([]);
+  const [judge,setJudge] = useState<null|'x'|'o'>(null);
   const questionNumber=answers.length;
   const questionSum=questionsData.length;
   let WAs:{question:{member:Member,options:string[]},answer:string}[]=[];
 
   if(!inEditorial && questionNumber===questionSum){
     WAs=questionsData.map((question,idx) => ({question:question,answer:answers[idx]})).filter((wj)=> wj.question.member.name!==wj.answer);
+  }
+  function handleJudge(myAnswer:string){
+    setJudge(myAnswer===questionsData[questionNumber].member.name?'o':'x');
+    setTimeout(()=> {setJudge(null);handleAnswer(myAnswer)},500000);
   }
 
   function handleAnswer(myAnswer:string){
@@ -47,12 +52,13 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
               <div>{questionNumber+1}／{questionSum}</div>
               <Penlight lColor={questionsData[questionNumber].member.color[0]} rColor={questionsData[questionNumber].member.color[1]} borderColor="ホワイト"/>
               <h2 id='hoge3'><span>{questionsData[questionNumber].member.color[0]}</span><span> ✕ {questionsData[questionNumber].member.color[1]}</span></h2>
+              {judge!==null && (judge==='o'?<Circle/>:<Cross/>)}
               <div className="lb-headline lb1">選択肢</div>
             </div>
             {
               questionsData[questionNumber].options.map((op,idx)=>
                 <div key={idx}>
-                  <button className='btn2' onClick={()=>handleAnswer(op)}>{op}</button>
+                  <button className='btn2' onClick={()=>handleJudge(op)}>{op}</button>
                   <br />  
                 </div>
               )

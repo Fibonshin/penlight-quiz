@@ -228,3 +228,14 @@ tbody {
         left:8px;
     }
 }
+
+.x {
+    position: absolute;
+    top: 83px;
+    left: 77px;
+}
+.o {
+    position: absolute;
+    top: 80px;
+    left: 74px;
+}
