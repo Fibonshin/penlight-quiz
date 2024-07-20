@@ -3,7 +3,6 @@ import { IoArrowUndoSharp } from "react-icons/io5";
 import { useState } from 'react';
 import { Member,membersData} from './data';
 import { MiniPenlight } from './svgs';
-import SelectQuestions from './SelectQuestions';
 
 
 function PenlightColorList({setPage}:{setPage:React.Dispatch<React.SetStateAction<number>>}) {

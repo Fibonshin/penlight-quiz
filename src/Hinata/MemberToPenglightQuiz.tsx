@@ -1,5 +1,5 @@
 import './Hinata.css';
-import {Member,Color,transColor} from './data';
+import {Member,Color} from './data';
 import { useEffect, useState } from 'react';
 import { IoMdHome } from "react-icons/io";
 import SelectQuestions from './SelectQuestions';
