@@ -127,7 +127,7 @@ button {
     margin:40px 0px 5px 20px;
     position: absolute;
     top: -80px;
-    left: -10px;
+    left: -20px;
 }
 .lbl {
     position: absolute;
@@ -370,4 +370,6 @@ tbody {
 
 .wa-list {
     position: relative;
+    width: fit-content;
+    margin: auto;
 }
