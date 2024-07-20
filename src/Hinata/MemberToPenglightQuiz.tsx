@@ -149,11 +149,11 @@ function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateA
                         <tr key={idx}>
                           <td>{wa.question.member.name}</td>
                           <td id='penpen'>
-                            <MiniPenlight lColor={wa.question.member.color[0]} rColor={wa.question.member.color[1]} height={27} borderColor="ホワイト"/>
+                            <MiniPenlight lColor={wa.question.member.color[0]} rColor={wa.question.member.color[1]} height={30} borderColor="ホワイト"/>
                             {wa.question.member.color[0]}<br/>✕ {wa.question.member.color[1]}
                           </td>
                           <td id='penpen'>
-                            <MiniPenlight lColor={wa.answer.l} rColor={wa.answer.r} height={27} borderColor="ホワイト"/>
+                            <MiniPenlight lColor={wa.answer.l} rColor={wa.answer.r} height={30} borderColor="ホワイト"/>
                             {wa.answer.l}<br/>✕ {wa.answer.r}
                           </td>
                         </tr>

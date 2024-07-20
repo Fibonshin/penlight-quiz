@@ -122,7 +122,7 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
                       WAs.map((wa,idx)=> (
                         <tr key={idx}>
                           <td id='penpen'>
-                            <MiniPenlight lColor={wa.question.member.color[0]} rColor={wa.question.member.color[1]} height={32} borderColor="ホワイト"/>
+                            <MiniPenlight lColor={wa.question.member.color[0]} rColor={wa.question.member.color[1]} height={38} borderColor="ホワイト"/>
                             {wa.question.member.color[0]}<br/>✕ {wa.question.member.color[1]}
                           </td>
                           <td>{wa.question.member.name}</td>

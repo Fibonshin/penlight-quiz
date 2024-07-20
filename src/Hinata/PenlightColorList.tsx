@@ -65,7 +65,7 @@ function PenlightColorList({setPage}:{setPage:React.Dispatch<React.SetStateActio
                   <tr key={idx}>
                     <td>{member.name}</td>
                     <td id='penpen'>
-                      <MiniPenlight lColor={member.color[0]} rColor={member.color[1]} height={32} borderColor="ホワイト"/>
+                      <MiniPenlight lColor={member.color[0]} rColor={member.color[1]} height={38} borderColor="ホワイト"/>
                       {member.color[0]}<br/>✕ {member.color[1]}
                     </td>
                   </tr>
