@@ -22,7 +22,7 @@ html {
 .title {
     width: 300px;
     height: 300px;
-    margin: 30px auto 70px auto;
+    margin: 0px auto 50px auto;
     border-radius: 50%;
     background-color: #FFB800;
     color: white;
@@ -150,7 +150,7 @@ button {
 }
 
 #editorial {
-    height: 640px;
+    height: 540px;
 }
 
 
@@ -201,11 +201,11 @@ tbody {
 }
 
 #hoge1 {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 #hoge2 {
-    margin-top: 60px;
+    margin-top: 30px;
 }
 
 #hoge3 {
