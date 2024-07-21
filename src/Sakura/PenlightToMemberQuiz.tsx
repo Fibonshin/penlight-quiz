@@ -103,7 +103,7 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
             <br /> 
             <button className='btn3' id="goto-home" onClick={()=>{setPage(0)} }>ホームに戻る</button>
             <br />
-            <a className='share' href={`https://twitter.com/intent/tweet?text=☀️日向坂46ペンライトQUIZ☀️%0Aペンライトカラー➔メンバー4択QUIZ【${category}】%0A%0A ${questionSum} 問中 ${questionSum-WAs.length} 問正解${WAs.length===0?'🎉':'！'}%0A&url=https://penlight-quiz.com/hinata&hashtags=日向坂46,ペンライトQUIZ`} target="_blank" rel="noreferrer noopener"><BsTwitterX size="17" /> 結果をシェア</a>
+            <a className='share' href={`https://twitter.com/intent/tweet?text=🌸櫻坂46ペンライトQUIZ🌸%0Aペンライトカラー➔メンバー4択QUIZ【${category}】%0A%0A ${questionSum} 問中 ${questionSum-WAs.length} 問正解${WAs.length===0?'🎉':'！'}%0A&url=https://penlight-quiz.com/sakura&hashtags=櫻坂46,ペンライトQUIZ`} target="_blank" rel="noreferrer noopener"><BsTwitterX size="17" /> 結果をシェア</a>
             {
               WAs.length !==0 &&
               <div className='wa-list'>
