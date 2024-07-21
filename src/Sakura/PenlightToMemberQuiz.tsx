@@ -1,55 +1,35 @@
-import {Member,Color} from './data';
-import { useEffect, useState } from 'react';
+import {Member} from './data';
+import { useState } from 'react';
 import { IoMdHome } from "react-icons/io";
 import SelectQuestions from './SelectQuestions';
 import Editorial from './Editorial';
 import Penlight from './svgs';
 import { MiniPenlight ,Circle,Cross} from './svgs';
 import { BsTwitterX } from "react-icons/bs";
-import ColorPicker from './ColorPicker';
 
-function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAction<number>>}) {
+function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAction<number>>}) {
   const [questionsData,setQuestionsData] = useState<{member:Member,options:string[]}[]>([]);
   const [category,setCategory] =useState<string>("");
   const [inEditorial,setInEditorial] = useState(false);
-  const [answers,setAnswers] =useState<{l:Color,r:Color}[]>([]);
-  const [currentAnswer,setCurrentAnswer] = useState<{l:Color,r:Color}>({l:'パステルブルー',r:'パステルブルー'});
+  const [answers,setAnswers] =useState<string[]>([]);
+  const [currentAnswer,setCurrentAnswer] = useState<null|string>(null);
   const [paused,setPaused]=useState(false);
-  const [judge,setJudge]=useState<null|boolean>(null);
   const [perfectMessage,setPerfectMessasge]=useState("");
   const questionNumber=answers.length;
   const questionSum=questionsData.length;
-  let WAs:{question:{member:Member,options:string[]},answer:{l:Color,r:Color}}[]=[];
+  let WAs:{question:{member:Member,options:string[]},answer:string}[]=[];
 
   if(!inEditorial && questionNumber===questionSum){
-    WAs=questionsData.map((question,idx) => ({question:question,answer:answers[idx]})).filter((wj)=>
-      (JSON.stringify(Object.values(wj.answer).sort()))!==JSON.stringify(wj.question.member.color.slice().sort())
-    );
+    WAs=questionsData.map((question,idx) => ({question:question,answer:answers[idx]})).filter((wj)=> wj.question.member.name!==wj.answer);
+  }
+  function handleJudge(myAnswer:string){
+    setCurrentAnswer(myAnswer);
+    setTimeout(()=> {setCurrentAnswer(null);handleAnswer(myAnswer)},500);
   }
 
-  useEffect(()=>{
-    let targetL = document.getElementById('l2');
-    let targetaL = document.getElementById('al2');
-    let targetR = document.getElementById('r2');
-    let targetaR = document.getElementById('ar2');
-    if(targetL && targetR && targetaL && targetaR){
-      targetaL.scrollIntoView();
-      targetL.scrollIntoView();
-      targetaR.scrollIntoView();
-      targetR.scrollIntoView();
-    }
-  },[inEditorial,answers,questionsData]);
-
-  function handleJudge(){
-    setJudge((JSON.stringify(Object.values(currentAnswer).sort()))===JSON.stringify(questionsData[questionNumber].member.color.slice().sort()));
-    setTimeout(()=>{handleAnswer()},500);
-  }
-
-  function handleAnswer(){
-    if((JSON.stringify(Object.values(currentAnswer).sort()))!==JSON.stringify(questionsData[questionNumber].member.color.slice().sort()))setInEditorial(true);
-    setJudge(null);
-    setAnswers([...answers,currentAnswer]);
-    setCurrentAnswer({l:'パステルブルー',r:'パステルブルー'})
+  function handleAnswer(myAnswer:string){
+    if(myAnswer!==questionsData[questionNumber].member.name)setInEditorial(true);
+    setAnswers([...answers,myAnswer]);
   }
   return (
     <>
@@ -81,23 +61,21 @@ function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateA
           :
           questionNumber < questionSum?
           <>
-          <div className="question">
-            {judge!==null && (judge?<Circle/>:<Cross/>)}
-            <div>{questionNumber+1}／{questionSum}</div>
-            <h1>{questionsData[questionNumber].member.name}</h1>
-            <br />
-          </div>
-          <Penlight lColor={currentAnswer.l} rColor={currentAnswer.r}/>
-          <br />  
-          <div className="color-text">
-            <h4>{currentAnswer.l}</h4>
-            <h4>{currentAnswer.r}</h4>
-            <div className="lb-headline lbl">左</div>
-            <div className="lb-headline lbr">右</div>
-          </div>
-          <ColorPicker currentAnswer={currentAnswer} setCurrentAnswer={setCurrentAnswer} target='l'/>
-          <ColorPicker currentAnswer={currentAnswer} setCurrentAnswer={setCurrentAnswer} target='r'/>
-          <button className={judge!==null?'disable-click':''} id="goto-answer" onClick={handleJudge}>答え合わせ</button>
+            <div className="question">
+              <div>{questionNumber+1}／{questionSum}</div>
+              <Penlight lColor={questionsData[questionNumber].member.color[0]} rColor={questionsData[questionNumber].member.color[1]} borderColor="ホワイト"/>
+              <h2 id='hoge3'><span>{questionsData[questionNumber].member.color[0]}</span><span> ✕ {questionsData[questionNumber].member.color[1]}</span></h2>
+              {currentAnswer!==null && (currentAnswer===questionsData[questionNumber].member.name?<Circle/>:<Cross/>)}
+              <div className="lb-headline lb1">選択肢</div>
+            </div>
+            {
+              questionsData[questionNumber].options.map((op,idx)=>
+                <div key={idx}>
+                  <button className={`btn2 ${currentAnswer!==null?'disable-click':''} ${currentAnswer===op?'selected':''}`} onClick={()=>handleJudge(op)}>{op}</button>
+                  <br />  
+                </div>
+              )
+            }
           </>
           :
           <>
@@ -125,15 +103,15 @@ function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateA
             <br /> 
             <button className='btn3' id="goto-home" onClick={()=>{setPage(0)} }>ホームに戻る</button>
             <br />
-            <a className='share' href={`https://twitter.com/intent/tweet?text=☀️日向坂46ペンライトQUIZ☀️%0Aメンバー➔ペンライトカラーQUIZ【${category}】%0A%0A ${questionSum} 問中 ${questionSum-WAs.length} 問正解${WAs.length===0?'🎉':'！'}%0A&url=https://penlight-quiz.com/hinata&hashtags=日向坂46,ペンライトQUIZ`} target="_blank" rel="noreferrer noopener"><BsTwitterX size="17" /> 結果をシェア</a>
+            <a className='share' href={`https://twitter.com/intent/tweet?text=🌸櫻坂46ペンライトQUIZ🌸%0Aペンライトカラー➔メンバー4択QUIZ【${category}】%0A%0A ${questionSum} 問中 ${questionSum-WAs.length} 問正解${WAs.length===0?'🎉':'！'}%0A&url=https://penlight-quiz.com/sakura&hashtags=櫻坂46,ペンライトQUIZ`} target="_blank" rel="noreferrer noopener"><BsTwitterX size="17" /> 結果をシェア</a>
             {
               WAs.length !==0 &&
               <div className='wa-list'>
                 {WAs.length !==0 && <div className="lb-headline lb3">間違えた問題</div>}
-                <table className='tb1'>
+                <table>
                   <thead>
                     <tr>
-                      <td>名前</td>
+                      <td>ペンライトカラー</td>
                       <td>答え</td>
                       <td>自分の回答</td>
                     </tr>
@@ -142,15 +120,12 @@ function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateA
                     {
                       WAs.map((wa,idx)=> (
                         <tr key={idx}>
-                          <td>{wa.question.member.name}</td>
                           <td id='penpen'>
-                            <MiniPenlight lColor={wa.question.member.color[0]} rColor={wa.question.member.color[1]} height={30} borderColor="ホワイト"/>
+                            <MiniPenlight lColor={wa.question.member.color[0]} rColor={wa.question.member.color[1]} height={38} borderColor="ホワイト"/>
                             {wa.question.member.color[0]}<br/>✕ {wa.question.member.color[1]}
                           </td>
-                          <td id='penpen'>
-                            <MiniPenlight lColor={wa.answer.l} rColor={wa.answer.r} height={30} borderColor="ホワイト"/>
-                            {wa.answer.l}<br/>✕ {wa.answer.r}
-                          </td>
+                          <td>{wa.question.member.name}</td>
+                          <td>{wa.answer}</td>
                         </tr>
                       ))
                     }
@@ -162,7 +137,7 @@ function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateA
                 }}>間違えた問題だけやる</button>
               </div>
             }
-
+            
           </>
           }
         </>
@@ -171,4 +146,4 @@ function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateA
   );
 }
 
-export default MemberToPenglightQuiz;
+export default PenlightToMemberQuiz;

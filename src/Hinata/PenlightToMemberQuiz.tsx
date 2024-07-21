@@ -1,4 +1,3 @@
-import './Hinata.css';
 import {Member} from './data';
 import { useState } from 'react';
 import { IoMdHome } from "react-icons/io";
