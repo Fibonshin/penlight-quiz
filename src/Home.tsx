@@ -9,7 +9,7 @@ function Home() {
     <div className='home'>
     <Helmet>
       <html className='home-html'/>
-      <meta name="theme-color" content="#000000" />
+      <meta name="theme-color" content="#E5E5E5" />
       <link rel="icon" href="https://penlight-quiz.com/favicon.ico" />
       <meta
         name="description"
@@ -24,6 +24,7 @@ function Home() {
       <link rel="manifest" href="https://penlight-quiz.com/manifest.json" />
       <title>ペンライトQUIZ</title>
     </Helmet>
+    <div className="space"></div>
     <div className="title">
           <br />
           <p>ペンライト</p>
