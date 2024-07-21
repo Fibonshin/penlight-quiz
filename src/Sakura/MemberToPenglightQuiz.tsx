@@ -49,7 +49,7 @@ function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateA
     if((JSON.stringify(Object.values(currentAnswer).sort()))!==JSON.stringify(questionsData[questionNumber].member.color.slice().sort()))setInEditorial(true);
     setJudge(null);
     setAnswers([...answers,currentAnswer]);
-    setCurrentAnswer({l:'パステルブルー',r:'パステルブルー'})
+    setCurrentAnswer({l:'ホワイト',r:'ホワイト'})
   }
   return (
     <>
@@ -87,7 +87,7 @@ function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateA
             <h1>{questionsData[questionNumber].member.name}</h1>
             <br />
           </div>
-          <Penlight lColor={currentAnswer.l} rColor={currentAnswer.r}/>
+          <Penlight lColor={currentAnswer.l} rColor={currentAnswer.r} borderColor='ホワイト'/>
           <br />  
           <div className="color-text">
             <h4>{currentAnswer.l}</h4>

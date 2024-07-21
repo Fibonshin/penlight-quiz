@@ -1,8 +1,8 @@
-.hinata-html {
+.nogi-html {
     background-color: #BAECFF;
 }
 
-.hinata{
+.nogi{
 .home-button {
     display: flex;
     justify-content: flex-end;
@@ -82,7 +82,12 @@ button {
     position: relative;
 }
 
-
+.question div:first-of-type {
+    margin: 0 0 0 auto;
+    width: fit-content;
+    font-size: 25px;
+    padding: 15px;
+}
 
 .question h2{
     font-size: 30px;
@@ -314,7 +319,15 @@ tbody {
     margin-bottom: 40px;
 }
 
+.color-text h4:first-of-type{
+    position: absolute;
+    right: 165px;
+}
 
+.color-text h4:last-of-type{
+    position: absolute;
+    left: 165px;
+}
 
 .color-picker {
     background-color: white;
@@ -359,22 +372,5 @@ tbody {
     position: relative;
     width: fit-content;
     margin: auto;
-}
-
-.question div:first-of-type {
-    margin: 0 0 0 auto;
-    width: fit-content;
-    font-size: 25px;
-    padding: 15px;
-}
-
-.color-text h4:first-of-type{
-    position: absolute;
-    right: 165px;
-}
-
-.color-text h4:last-of-type{
-    position: absolute;
-    left: 165px;
 }
 }

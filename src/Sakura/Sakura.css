@@ -1,8 +1,8 @@
-.hinata-html {
-    background-color: #BAECFF;
+.sakura-html {
+    background-color: #ffffff;
 }
 
-.hinata{
+.sakura{
 .home-button {
     display: flex;
     justify-content: flex-end;
@@ -11,7 +11,7 @@
 
 .category {
     color:white;
-    background-color: #FFB800;
+    background-color: #ffa1bf;
     width:220px;
     margin:20px auto;
     font-weight:bold;
@@ -24,8 +24,8 @@
     height: 300px;
     margin: 0px auto 50px auto;
     border-radius: 50%;
-    background-color: #FFB800;
-    color: white;
+    background-color: #ffa1bf;
+    color: #fff;
     text-align: center;
     line-height: 63px;
     font-size: 40px;
@@ -35,7 +35,7 @@
 button {
     border-radius: 100px;
     color: white;
-    background-color: #FFB800;
+    background-color: #FF87CF;
     padding: 7px 20px;
     margin: 10px 0px;
     border: none;
@@ -45,7 +45,7 @@ button {
 } 
 
 .btn1 {
-    background-color: #00B8FF;
+    background-color: #ffc6d8;
     font-size: 20px;
     width: 320px;
     height: 80px;
@@ -80,9 +80,15 @@ button {
     margin: 0 auto 50px auto;
     border-radius: 30px;
     position: relative;
+    border: 3px #ffc6d8 solid;
 }
 
-
+.question div:first-of-type {
+    margin: 0 0 0 auto;
+    width: fit-content;
+    font-size: 25px;
+    padding: 15px;
+}
 
 .question h2{
     font-size: 30px;
@@ -98,7 +104,7 @@ button {
 .lb-headline{
     color: white;
     font-weight: bold;
-    background-color: #00F0FF;
+    background-color: #FF87CF;
     width:fit-content;
     padding: 2px 10px 0 10px;
     font-size: 22px;
@@ -230,7 +236,7 @@ tbody {
 
 .show-category {
     color:white;
-    background-color: #FFB800;
+    background-color: #ffa1bf;
     margin:20px auto 20px auto;
     width: fit-content;
     padding: 5px;
@@ -265,7 +271,7 @@ tbody {
 }
 
 .selected {
-    background-color: #ff7300e7;
+    background-color: #ff5bbe;
 }
 
 .cover-all {
@@ -314,7 +320,15 @@ tbody {
     margin-bottom: 40px;
 }
 
+.color-text h4:first-of-type{
+    position: absolute;
+    right: 165px;
+}
 
+.color-text h4:last-of-type{
+    position: absolute;
+    left: 165px;
+}
 
 .color-picker {
     background-color: white;
@@ -323,6 +337,7 @@ tbody {
     margin: 30px auto 20px auto;
     border-radius: 100px;
     position: relative;
+    border: 2px #ffc6d8 solid;
 }
 
 .color-picker ul{
@@ -359,22 +374,5 @@ tbody {
     position: relative;
     width: fit-content;
     margin: auto;
-}
-
-.question div:first-of-type {
-    margin: 0 0 0 auto;
-    width: fit-content;
-    font-size: 25px;
-    padding: 15px;
-}
-
-.color-text h4:first-of-type{
-    position: absolute;
-    right: 165px;
-}
-
-.color-text h4:last-of-type{
-    position: absolute;
-    left: 165px;
 }
 }
