@@ -13,7 +13,7 @@ function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateA
   const [category,setCategory] =useState<string>("");
   const [inEditorial,setInEditorial] = useState(false);
   const [answers,setAnswers] =useState<{l:Color,r:Color}[]>([]);
-  const [currentAnswer,setCurrentAnswer] = useState<{l:Color,r:Color}>({l:'パステルブルー',r:'パステルブルー'});
+  const [currentAnswer,setCurrentAnswer] = useState<{l:Color,r:Color}>({l:'ホワイト',r:'ホワイト'});
   const [paused,setPaused]=useState(false);
   const [judge,setJudge]=useState<null|boolean>(null);
   const [perfectMessage,setPerfectMessasge]=useState("");
