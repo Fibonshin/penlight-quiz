@@ -184,6 +184,14 @@ export const membersData:Member[]=[
       graduated:false,
       color:["オレンジ","オレンジ"]
    },
+   // 現行のペンライトにはホットピンクが存在しないため一旦対象外とした。
+   // {
+   //    name:"松平璃子",
+   //    term:2,
+   //    backs:false,
+   //    graduated:false,
+   //    color:["ホットピンク","バイオレット"]
+   // },
    {
       name:"松田里奈",
       term:2,
