@@ -28,7 +28,7 @@ function PenlightColorList({setPage}:{setPage:React.Dispatch<React.SetStateActio
             </div>
           </div>
           <div className="category">ピックアップ</div>
-          <button className='btn1' onClick={()=>onPlay({filters:[{key:"graduated",property:false}],category:"全メンバー"})}>全メンバー<br/>(28名)</button>
+          <button className='btn1' onClick={()=>onPlay({filters:[{key:"graduated",property:false}],category:"全メンバー"})}>全メンバー<br/>(27名)</button>
           <br />
           <button className='btn1' onClick={()=>onPlay({filters:[],category:"全メンバー + 卒業メンバー"})}>全メンバー + 卒業メンバー<br/>(36名)</button>
           <br />

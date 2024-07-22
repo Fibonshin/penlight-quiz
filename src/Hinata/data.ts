@@ -105,7 +105,7 @@ export const membersData:Member[]=[
       name:"高本彩花",
       term:1,
       hiragana:true,
-      graduated:false,
+      graduated:true,
       color:["パステルブルー","サクラピンク"]
    },
    {
