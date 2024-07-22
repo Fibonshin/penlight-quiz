@@ -4,11 +4,11 @@ function ColorPicker({currentAnswer,setCurrentAnswer,target}:{currentAnswer:{l: 
     <div className="color-picker">
       <ul>
         {
-          (Object.keys(transColor) as (Color)[]).slice(1).map((color,idx)=>(
+          (Object.keys(transColor) as (Color)[]).slice(1,-1).map((color,idx)=>(
             <li key={idx}>
               <div 
               id={`a${target+idx}`} 
-              className={`color-circle ${color==='ホワイト'?'circle-border':''} ${color===currentAnswer[target]?'selected-circle':''}`} 
+              className={`color-circle ${color==='白'?'circle-border':''} ${color===currentAnswer[target]?'selected-circle':''}`} 
               style={{backgroundColor:transColor[color]}}
               onClick={()=>setCurrentAnswer((prevAnswer)=>{
                 const newAnswer={...prevAnswer};
@@ -24,7 +24,7 @@ function ColorPicker({currentAnswer,setCurrentAnswer,target}:{currentAnswer:{l: 
             <li key={idx}>
               <div 
               id={`${target+idx}`} 
-              className={`color-circle ${color==='ホワイト'?'circle-border':''} ${color===currentAnswer[target]?'selected-circle':''}`} 
+              className={`color-circle ${color==='白'?'circle-border':''} ${color===currentAnswer[target]?'selected-circle':''}`} 
               style={{backgroundColor:transColor[color]}}
               onClick={()=>setCurrentAnswer((prevAnswer)=>{
                 const newAnswer={...prevAnswer};

@@ -13,7 +13,7 @@ function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateA
   const [category,setCategory] =useState<string>("");
   const [inEditorial,setInEditorial] = useState(false);
   const [answers,setAnswers] =useState<{l:Color,r:Color}[]>([]);
-  const [currentAnswer,setCurrentAnswer] = useState<{l:Color,r:Color}>({l:'パステルブルー',r:'パステルブルー'});
+  const [currentAnswer,setCurrentAnswer] = useState<{l:Color,r:Color}>({l:'白',r:'白'});
   const [paused,setPaused]=useState(false);
   const [judge,setJudge]=useState<null|boolean>(null);
   const [perfectMessage,setPerfectMessasge]=useState("");
@@ -49,7 +49,7 @@ function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateA
     if((JSON.stringify(Object.values(currentAnswer).sort()))!==JSON.stringify(questionsData[questionNumber].member.color.slice().sort()))setInEditorial(true);
     setJudge(null);
     setAnswers([...answers,currentAnswer]);
-    setCurrentAnswer({l:'パステルブルー',r:'パステルブルー'})
+    setCurrentAnswer({l:'白',r:'白'})
   }
   return (
     <>
@@ -87,7 +87,7 @@ function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateA
             <h1>{questionsData[questionNumber].member.name}</h1>
             <br />
           </div>
-          <Penlight lColor={currentAnswer.l} rColor={currentAnswer.r}/>
+          <Penlight lColor={currentAnswer.l} rColor={currentAnswer.r} borderColor='白'/>
           <br />  
           <div className="color-text">
             <h4>{currentAnswer.l}</h4>
@@ -125,7 +125,7 @@ function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateA
             <br /> 
             <button className='btn3' id="goto-home" onClick={()=>{setPage(0)} }>ホームに戻る</button>
             <br />
-            <a className='share' href={`https://twitter.com/intent/tweet?text=◢日向坂46ペンライトQUIZ◢%0Aメンバー➔ペンライトカラーQUIZ【${category}】%0A%0A ${questionSum} 問中 ${questionSum-WAs.length} 問正解${WAs.length===0?'🎉':'！'}%0A&url=https://penlight-quiz.com/nogi&hashtags=乃木坂46,ペンライトQUIZ`} target="_blank" rel="noreferrer noopener"><BsTwitterX size="17" /> 結果をシェア</a>
+            <a className='share' href={`https://twitter.com/intent/tweet?text=◢乃木坂46ペンライトQUIZ◢%0Aメンバー➔ペンライトカラーQUIZ【${category}】%0A%0A ${questionSum} 問中 ${questionSum-WAs.length} 問正解${WAs.length===0?'🎉':'！'}%0A&url=https://penlight-quiz.com/nogi&hashtags=乃木坂46,ペンライトQUIZ`} target="_blank" rel="noreferrer noopener"><BsTwitterX size="17" /> 結果をシェア</a>
             {
               WAs.length !==0 &&
               <div className='wa-list'>
@@ -144,11 +144,11 @@ function MemberToPenglightQuiz({setPage}:{setPage:React.Dispatch<React.SetStateA
                         <tr key={idx}>
                           <td>{wa.question.member.name}</td>
                           <td id='penpen'>
-                            <MiniPenlight lColor={wa.question.member.color[0]} rColor={wa.question.member.color[1]} height={30} borderColor="ホワイト"/>
+                            <MiniPenlight lColor={wa.question.member.color[0]} rColor={wa.question.member.color[1]} height={30} borderColor="白"/>
                             {wa.question.member.color[0]}<br/>✕ {wa.question.member.color[1]}
                           </td>
                           <td id='penpen'>
-                            <MiniPenlight lColor={wa.answer.l} rColor={wa.answer.r} height={30} borderColor="ホワイト"/>
+                            <MiniPenlight lColor={wa.answer.l} rColor={wa.answer.r} height={30} borderColor="白"/>
                             {wa.answer.l}<br/>✕ {wa.answer.r}
                           </td>
                         </tr>

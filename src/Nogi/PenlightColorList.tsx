@@ -28,19 +28,20 @@ function PenlightColorList({setPage}:{setPage:React.Dispatch<React.SetStateActio
             </div>
           </div>
           <div className="category">ピックアップ</div>
-          <button className='btn1' onClick={()=>onPlay({filters:[{key:"graduated",property:false}],category:"全メンバー"})}>全メンバー<br/>(28名)</button>
+          <button className='btn1' onClick={()=>onPlay({filters:[{key:"graduated",property:false}],category:"全メンバー"})}>全メンバー<br/>(33名)</button>
           <br />
-          <button className='btn1' onClick={()=>onPlay({filters:[],category:"全メンバー + 卒業メンバー"})}>全メンバー + 卒業メンバー<br/>(36名)</button>
+          <button className='btn1' onClick={()=>onPlay({filters:[],category:"全メンバー + 卒業メンバー"})}>全メンバー + 卒業メンバー<br/>(82名)</button>
           <br />
-          <button className='btn1' onClick={()=>onPlay({filters:[{key:"term",property:4},{key:"graduated",property:false}],category:"「４期生ライブ」メンバー"})}>「４期生ライブ」メンバー<br/>(11名)</button>
           <div className="category">期別</div>
-          <button className='btn1' onClick={()=>onPlay({filters:[{key:"term",property:1}],category:"１期生メンバー"})}>１期生メンバー<br/>(11名)</button>
+          <button className='btn1' onClick={()=>onPlay({filters:[{key:"term",property:1}],category:"１期生メンバー"})}>１期生メンバー<br/>(30名)</button>
           <br />
-          <button className='btn1' onClick={()=>onPlay({filters:[{key:"term",property:2}],category:"２期生メンバー"})}>２期生メンバー<br/>(9名)</button>
+          <button className='btn1' onClick={()=>onPlay({filters:[{key:"term",property:2}],category:"２期生メンバー"})}>２期生メンバー<br/>(13名)</button>
           <br />
-          <button className='btn1' onClick={()=>onPlay({filters:[{key:"term",property:3}],category:"３期生メンバー"})}>３期生メンバー<br/>(4名)</button>
+          <button className='btn1' onClick={()=>onPlay({filters:[{key:"term",property:3}],category:"３期生メンバー"})}>３期生メンバー<br/>(12名)</button>
           <br />
-          <button className='btn1' onClick={()=>onPlay({filters:[{key:"term",property:4}],category:"４期生メンバー"})}>４期生メンバー<br/>(12名)</button>      
+          <button className='btn1' onClick={()=>onPlay({filters:[{key:"term",property:4}],category:"４期生メンバー"})}>４期生メンバー<br/>(16名)</button>
+          <br />
+          <button className='btn1' onClick={()=>onPlay({filters:[{key:"term",property:5}],category:"5期生メンバー"})}>5期生メンバー<br/>(11名)</button>  
         </>
         :
         <>
@@ -64,7 +65,7 @@ function PenlightColorList({setPage}:{setPage:React.Dispatch<React.SetStateActio
                   <tr key={idx}>
                     <td>{member.name}</td>
                     <td id='penpen'>
-                      <MiniPenlight lColor={member.color[0]} rColor={member.color[1]} height={38} borderColor="ホワイト"/>
+                      <MiniPenlight lColor={member.color[0]} rColor={member.color[1]} height={38} borderColor="白"/>
                       {member.color[0]}<br/>✕ {member.color[1]}
                     </td>
                   </tr>

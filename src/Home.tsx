@@ -32,8 +32,8 @@ function Home() {
         </div>
     <button id='sakura' onClick={()=> navigate("/sakura")}>櫻坂46</button>
     <br />
-    {/* <button id='nogi' onClick={()=> navigate("/nogi")}>乃木坂46</button> */}
-    {/* <br /> */}
+    <button id='nogi' onClick={()=> navigate("/nogi")}>乃木坂46</button>
+    <br />
     <button id='hinata' onClick={()=> navigate("/hinata")}>日向坂46</button>
     <div id='fibon'>
       developed by <a href="https://x.com/fiboooo_" target="_blank" rel="noreferrer noopener">fibon</a>
