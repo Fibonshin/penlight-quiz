@@ -1,3 +1,3 @@
 # ペンライトカラーQUIZ
 reactのみ。
-[text](https://penlight-quiz.com/)
+https://penlight-quiz.com/
