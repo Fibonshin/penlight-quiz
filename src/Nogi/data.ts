@@ -25,6 +25,11 @@ export interface Member {
 
 export const perfectMessages=[
    "全問正解というのはロックだぜ！",
+   "正解が止まらなくなる",
+   "帰り道は全問正解したくなる",
+   "裸足でPerfect",
+   "何度目の正解か？",
+   "ゼンモンセイカイシカ"
 ]
 
 export const membersData:Member[]=[
