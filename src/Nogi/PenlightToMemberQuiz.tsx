@@ -63,7 +63,7 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
           <>
             <div className="question">
               <div>{questionNumber+1}／{questionSum}</div>
-              <Penlight lColor={questionsData[questionNumber].member.color[0]} rColor={questionsData[questionNumber].member.color[1]} borderColor="ホワイト"/>
+              <Penlight lColor={questionsData[questionNumber].member.color[0]} rColor={questionsData[questionNumber].member.color[1]} borderColor="白"/>
               <h2 id='hoge3'><span>{questionsData[questionNumber].member.color[0]}</span><span> ✕ {questionsData[questionNumber].member.color[1]}</span></h2>
               {currentAnswer!==null && (currentAnswer===questionsData[questionNumber].member.name?<Circle/>:<Cross/>)}
               <div className="lb-headline lb1">選択肢</div>
@@ -121,7 +121,7 @@ function PenlightToMemberQuiz({setPage}:{setPage:React.Dispatch<React.SetStateAc
                       WAs.map((wa,idx)=> (
                         <tr key={idx}>
                           <td id='penpen'>
-                            <MiniPenlight lColor={wa.question.member.color[0]} rColor={wa.question.member.color[1]} height={38} borderColor="ホワイト"/>
+                            <MiniPenlight lColor={wa.question.member.color[0]} rColor={wa.question.member.color[1]} height={38} borderColor="白"/>
                             {wa.question.member.color[0]}<br/>✕ {wa.question.member.color[1]}
                           </td>
                           <td>{wa.question.member.name}</td>

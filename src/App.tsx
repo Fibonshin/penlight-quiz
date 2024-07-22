@@ -12,7 +12,7 @@ function App() {
           <Route path="/" element={<Home/>}></Route>
           <Route path="/hinata" element={<Hinata/>}></Route>
           <Route path="/sakura" element={<Sakura/>}></Route>
-          {/* <Route path="/nogi" element={<Nogi/>}></Route> */}
+          <Route path="/nogi" element={<Nogi/>}></Route>
         </Routes>
       </>
     </BrowserRouter>
