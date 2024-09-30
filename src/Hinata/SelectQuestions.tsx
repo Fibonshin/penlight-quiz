@@ -54,7 +54,7 @@ function SelectQuestions({setQuestionsData,setPage,setCategory,setPerfectMessasg
       <br />
       <button className='btn1' onClick={()=>onPlay({filters:[],category:"全メンバー + 卒業メンバー"})}>全メンバー + 卒業メンバー<br/>(36名)</button>
       <br />
-      <button className='btn1' onClick={()=>onPlay({filters:[{key:"term",property:4},{key:"graduated",property:false}],category:"「４期生ライブ」メンバー"})}>「４期生ライブ」メンバー<br/>(11名)</button>
+      <button className='btn1' onClick={()=>onPlay({filters:[{key:"hiragana",property:true}],category:"12thひなた坂46LIVEメンバー"})}>12thひなた坂46LIVEメンバー<br/>(12名)</button>
       <div className="category">期別</div>
       <button className='btn1' onClick={()=>onPlay({filters:[{key:"term",property:1}],category:"１期生メンバー"})}>１期生メンバー<br/>(11名)</button>
       <br />

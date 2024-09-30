@@ -104,7 +104,7 @@ export const membersData:Member[]=[
    {
       name:"高本彩花",
       term:1,
-      hiragana:true,
+      hiragana:false,
       graduated:true,
       color:["パステルブルー","サクラピンク"]
    },
@@ -188,7 +188,7 @@ export const membersData:Member[]=[
    {
       name:"髙橋未来虹",
       term:3,
-      hiragana:true,
+      hiragana:false,
       graduated:false,
       color:["グリーン","パープル"]
    },
@@ -223,7 +223,7 @@ export const membersData:Member[]=[
    {
       name:"小西夏菜実",
       term:4,
-      hiragana:true,
+      hiragana:false,
       graduated:false,
       color:["パープル","ブルー"]
    },
@@ -251,7 +251,7 @@ export const membersData:Member[]=[
    {
       name:"平尾帆夏",
       term:4,
-      hiragana:false,
+      hiragana:true,
       graduated:false,
       color:["パステルブルー","オレンジ"]
    },
@@ -272,14 +272,14 @@ export const membersData:Member[]=[
    {
       name:"宮地すみれ",
       term:4,
-      hiragana:false,
+      hiragana:true,
       graduated:false,
       color:["バイオレット","レッド"]
    },
    {
       name:"山下葉留花",
       term:4,
-      hiragana:false,
+      hiragana:true,
       graduated:false,
       color:["ホワイト","エメラルドグリーン"]
    },
