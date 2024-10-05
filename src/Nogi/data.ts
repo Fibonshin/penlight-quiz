@@ -339,7 +339,7 @@ export const membersData:Member[]=[
    {
       name:"伊藤理々杏",
       term:3,
-      under:false,
+      under:true,
       graduated:false,
       color:["紫","赤"]
    },
@@ -381,21 +381,21 @@ export const membersData:Member[]=[
    {
       name:"佐藤楓",
       term:3,
-      under:false,
+      under:true,
       graduated:false,
       color:["赤","赤"]
    },
    {
       name:"中村麗乃",
       term:3,
-      under:false,
+      under:true,
       graduated:false,
       color:["青","白"]
    },
    {
       name:"向井葉月",
       term:3,
-      under:false,
+      under:true,
       graduated:false,
       color:["黄","黄"]
    },
@@ -409,7 +409,7 @@ export const membersData:Member[]=[
    {
       name:"吉田綾乃クリスティー",
       term:3,
-      under:false,
+      under:true,
       graduated:false,
       color:["ピンク","紫"]
    },
@@ -438,7 +438,7 @@ export const membersData:Member[]=[
       name:"掛橋沙耶香",
       term:4,
       under:false,
-      graduated:false,
+      graduated:true,
       color:["ピンク","オレンジ"]
    },
    {
@@ -458,7 +458,7 @@ export const membersData:Member[]=[
    {
       name:"柴田柚菜",
       term:4,
-      under:false,
+      under:true,
       graduated:false,
       color:["青","黄緑"]
    },
@@ -493,35 +493,35 @@ export const membersData:Member[]=[
    {
       name:"矢久保美緒",
       term:4,
-      under:false,
+      under:true,
       graduated:false,
       color:["ピンク","黄"]
    },
    {
       name:"黒見明香",
       term:4,
-      under:false,
+      under:true,
       graduated:false,
       color:["紫","緑"]
    },
    {
       name:"佐藤璃果",
       term:4,
-      under:false,
+      under:true,
       graduated:false,
       color:["ピンク","ターコイズ"]
    },
    {
       name:"林瑠奈",
       term:4,
-      under:false,
+      under:true,
       graduated:false,
       color:["ピンク","ピンク"]
    },
    {
       name:"松尾美佑",
       term:4,
-      under:false,
+      under:true,
       graduated:false,
       color:["ターコイズ","白"]
    },
@@ -563,7 +563,7 @@ export const membersData:Member[]=[
    {
       name:"岡本姫奈",
       term:5,
-      under:false,
+      under:true,
       graduated:false,
       color:["紫","青"]
    },
@@ -577,7 +577,7 @@ export const membersData:Member[]=[
    {
       name:"奥田いろは",
       term:5,
-      under:false,
+      under:true,
       graduated:false,
       color:["黄緑","ピンク"]
    },
