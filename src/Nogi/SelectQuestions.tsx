@@ -54,6 +54,8 @@ function SelectQuestions({setQuestionsData,setPage,setCategory,setPerfectMessasg
       <br />
       <button className='btn1' onClick={()=>onPlay({filters:[],category:"全メンバー + 卒業メンバー"})}>全メンバー + 卒業メンバー<br/>(82名)</button>
       <br />
+      <button className='btn1' onClick={()=>onPlay({filters:[{key:"under",property:true}],category:"「36thSGアンダーライブ」メンバー"})}>「36thSGアンダーライブ」<br/>メンバー(13名)</button>
+      <br />
       <div className="category">期別</div>
       <button className='btn1' onClick={()=>onPlay({filters:[{key:"term",property:1}],category:"１期生メンバー"})}>１期生メンバー<br/>(30名)</button>
       <br />
