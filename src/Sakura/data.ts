@@ -117,7 +117,7 @@ export const membersData:Member[]=[
    {
       name:"井上梨名",
       term:2,
-      backs:false,
+      backs:true,
       graduated:false,
       color:["ブルー","ブルー"]
    },
@@ -159,7 +159,7 @@ export const membersData:Member[]=[
    {
       name:"武元唯衣",
       term:2,
-      backs:true,
+      backs:false,
       graduated:false,
       color:["パッションピンク","ブルー"]
    },
@@ -272,14 +272,14 @@ export const membersData:Member[]=[
    {
       name:"向井純葉",
       term:3,
-      backs:true,
+      backs:false,
       graduated:false,
       color:["パステルブルー","エメラルドグリーン"]
    },
    {
       name:"村井優",
       term:3,
-      backs:false,
+      backs:true,
       graduated:false,
       color:["パープル","ブルー"]
    },
