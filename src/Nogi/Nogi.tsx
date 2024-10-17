@@ -24,6 +24,7 @@ function Nogi() {
         <meta property="og:image" content="https://penlight-quiz.com/nogi-og-image.png" />
         <meta property="og:url" content="https://penlight-quiz.com/nogi" />
         <meta name="twitter:card" content="summary_large_image" />
+      <meta property="twitter:image" content="https://penlight-quiz.com/nogi-og-image.png" />
         <link rel="apple-touch-icon" href="https://penlight-quiz.com/nogi-logo192.png" />
         <link rel="manifest" href="https://penlight-quiz.com/manifest.json" />
         <title>乃木坂46ペンライトQUIZ</title>

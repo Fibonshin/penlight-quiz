@@ -24,6 +24,7 @@ function Hinata() {
       <meta property="og:image" content="https://penlight-quiz.com/hinata-og-image.png" />
       <meta property="og:url" content="https://penlight-quiz.com/hinata" />
       <meta name="twitter:card" content="summary_large_image" />
+      <meta property="twitter:image" content="https://penlight-quiz.com/hinata-og-image.png" />
       <link rel="apple-touch-icon" href="https://penlight-quiz.com/hinata-logo192.png" />
       <link rel="manifest" href="https://penlight-quiz.com/manifest.json" />
       <title>日向坂46ペンライトQUIZ</title>
