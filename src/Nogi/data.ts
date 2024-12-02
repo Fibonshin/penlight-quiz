@@ -395,7 +395,7 @@ export const membersData:Member[]=[
    {
       name:"向井葉月",
       term:3,
-      under:true,
+      under:false,
       graduated:false,
       color:["黄","黄"]
    },
@@ -514,7 +514,7 @@ export const membersData:Member[]=[
    {
       name:"林瑠奈",
       term:4,
-      under:true,
+      under:false,
       graduated:false,
       color:["ピンク","ピンク"]
    },
@@ -577,7 +577,7 @@ export const membersData:Member[]=[
    {
       name:"奥田いろは",
       term:5,
-      under:true,
+      under:false,
       graduated:false,
       color:["黄緑","ピンク"]
    },
@@ -591,14 +591,14 @@ export const membersData:Member[]=[
    {
       name:"菅原咲月",
       term:5,
-      under:false,
+      under:true,
       graduated:false,
       color:["ピンク","水色"]
    },
    {
       name:"冨里奈央",
       term:5,
-      under:false,
+      under:true,
       graduated:false,
       color:["ターコイズ","ターコイズ"]
    },

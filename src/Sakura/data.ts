@@ -237,7 +237,7 @@ export const membersData:Member[]=[
    {
       name:"小田倉麗奈",
       term:3,
-      backs:true,
+      backs:false, // backs live出演に名前がないため。
       graduated:false,
       color:["パッションピンク","ホワイト"]
    },

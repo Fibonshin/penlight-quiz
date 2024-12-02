@@ -54,9 +54,7 @@ function SelectQuestions({setQuestionsData,setPage,setCategory,setPerfectMessasg
       <br />
       <button className='btn1' onClick={()=>onPlay({filters:[],category:"全メンバー + 卒業メンバー"})}>全メンバー + 卒業メンバー<br/>(36名)</button>
       <br />
-      <button className='btn1' onClick={()=>onPlay({filters:[{key:"term",property:3},{key:"graduated",property:false}],category:"「3期生ライブ」メンバー"})}>「3期生ライブ」メンバー<br/>(11名)</button>
-      <br />
-      <button className='btn1' onClick={()=>onPlay({filters:[{key:"backs",property:true}],category:"「10th Single BACKS LIVE!!」"})}>「9th Single BACKS LIVE!!」<br/>メンバー(13名)</button>
+      <button className='btn1' onClick={()=>onPlay({filters:[{key:"backs",property:true}],category:"「10th Single BACKS LIVE!!」"})}>10th Single BACKS LIVE!!<br/>メンバー(12名)</button>
       <div className="category">期別</div>
       <button className='btn1' onClick={()=>onPlay({filters:[{key:"term",property:1}],category:"１期生メンバー"})}>１期生メンバー<br/>(11名)</button>
       <br />
