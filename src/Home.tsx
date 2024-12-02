@@ -36,7 +36,7 @@ function Home() {
     <br />
     <button id='hinata' onClick={()=> navigate("/hinata")}>日向坂46</button>
     <div id='fibon'>
-      developed by <a href="https://x.com/fiboooo_" target="_blank" rel="noreferrer noopener">fibon</a>
+      developed by <a href="https://x.com/fiboooo_hinata" target="_blank" rel="noreferrer noopener">fibon</a>
     </div>
     </div>
   );
