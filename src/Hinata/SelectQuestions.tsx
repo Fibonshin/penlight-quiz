@@ -50,7 +50,7 @@ function SelectQuestions({setQuestionsData,setPage,setCategory,setPerfectMessasg
         </div>
       </div>
       <div className="category">ピックアップ</div>
-      <button className='btn1' onClick={()=>onPlay({filters:[{key:"graduated",property:false}],category:"全メンバー"})}>全メンバー<br/>(27名)</button>
+      <button className='btn1' onClick={()=>onPlay({filters:[{key:"graduated",property:false}],category:"全メンバー"})}>全メンバー<br/>(23名)</button>
       <br />
       <button className='btn1' onClick={()=>onPlay({filters:[],category:"全メンバー + 卒業メンバー"})}>全メンバー + 卒業メンバー<br/>(36名)</button>
       <br />

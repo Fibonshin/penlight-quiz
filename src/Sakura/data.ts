@@ -40,8 +40,8 @@ export const membersData:Member[]=[
    {
       name:"上村莉菜",
       term:1,
-      backs:true,
-      graduated:false,
+      backs:false,
+      graduated:true,
       color:["サクラピンク","サクラピンク"]
    },
    {
@@ -68,8 +68,8 @@ export const membersData:Member[]=[
    {
       name:"齋藤冬優花",
       term:1,
-      backs:true,
-      graduated:false,
+      backs:false,
+      graduated:true,
       color:["イエロー","イエロー"]
    },
    {
@@ -159,7 +159,7 @@ export const membersData:Member[]=[
    {
       name:"武元唯衣",
       term:2,
-      backs:false,
+      backs:true,
       graduated:false,
       color:["パッションピンク","ブルー"]
    },
@@ -223,7 +223,7 @@ export const membersData:Member[]=[
    {
       name:"石森璃花",
       term:3,
-      backs:true,
+      backs:false,
       graduated:false,
       color:["ピンク","グリーン"]
    },
@@ -237,7 +237,7 @@ export const membersData:Member[]=[
    {
       name:"小田倉麗奈",
       term:3,
-      backs:false, // backs live出演に名前がないため。
+      backs:true,
       graduated:false,
       color:["パッションピンク","ホワイト"]
    },
@@ -258,7 +258,7 @@ export const membersData:Member[]=[
    {
       name:"中嶋優月",
       term:3,
-      backs:false,
+      backs:true,
       graduated:false,
       color:["ピンク","ピンク"]
    },
@@ -279,7 +279,7 @@ export const membersData:Member[]=[
    {
       name:"村井優",
       term:3,
-      backs:true,
+      backs:false,
       graduated:false,
       color:["パープル","ブルー"]
    },

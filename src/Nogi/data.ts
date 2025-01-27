@@ -396,7 +396,7 @@ export const membersData:Member[]=[
       name:"向井葉月",
       term:3,
       under:false,
-      graduated:false,
+      graduated:true,
       color:["黄","黄"]
    },
    {

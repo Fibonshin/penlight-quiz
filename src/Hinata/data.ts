@@ -70,7 +70,7 @@ export const membersData:Member[]=[
       name:"加藤史帆",
       term:1,
       hiragana:false,
-      graduated:false,
+      graduated:true,
       color:["ブルー","ブルー"]
    },
    {
@@ -112,7 +112,7 @@ export const membersData:Member[]=[
       name:"東村芽依",
       term:1,
       hiragana:false,
-      graduated:false,
+      graduated:true,
       color:["サクラピンク","サクラピンク"]
    },
    {
@@ -139,7 +139,7 @@ export const membersData:Member[]=[
    {
       name:"富田鈴花",
       term:2,
-      hiragana:false,
+      hiragana:true,
       graduated:false,
       color:["パープル","パープル"]
    },
@@ -147,14 +147,14 @@ export const membersData:Member[]=[
       name:"丹生明里",
       term:2,
       hiragana:false,
-      graduated:false,
+      graduated:true,
       color:["オレンジ","オレンジ"]
    },
    {
       name:"濱岸ひより",
       term:2,
-      hiragana:true,
-      graduated:false,
+      hiragana:false,
+      graduated:true,
       color:["オレンジ","ホワイト"]
    },
    {
@@ -188,21 +188,21 @@ export const membersData:Member[]=[
    {
       name:"髙橋未来虹",
       term:3,
-      hiragana:false,
+      hiragana:true,
       graduated:false,
       color:["グリーン","パープル"]
    },
    {
       name:"森本茉莉",
       term:3,
-      hiragana:true,
+      hiragana:false,
       graduated:false,
       color:["オレンジ","ブルー"]
    },
    {
       name:"山口陽世",
       term:3,
-      hiragana:true,
+      hiragana:false,
       graduated:false,
       color:["パールグリーン","イエロー"]
    },
@@ -223,7 +223,7 @@ export const membersData:Member[]=[
    {
       name:"小西夏菜実",
       term:4,
-      hiragana:false,
+      hiragana:true,
       graduated:false,
       color:["パープル","ブルー"]
    },
@@ -251,7 +251,7 @@ export const membersData:Member[]=[
    {
       name:"平尾帆夏",
       term:4,
-      hiragana:true,
+      hiragana:false,
       graduated:false,
       color:["パステルブルー","オレンジ"]
    },
@@ -272,14 +272,14 @@ export const membersData:Member[]=[
    {
       name:"宮地すみれ",
       term:4,
-      hiragana:true,
+      hiragana:false,
       graduated:false,
       color:["バイオレット","レッド"]
    },
    {
       name:"山下葉留花",
       term:4,
-      hiragana:true,
+      hiragana:false,
       graduated:false,
       color:["ホワイト","エメラルドグリーン"]
    },
